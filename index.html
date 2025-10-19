@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>👀 What are you doing here?</title>
+  <style>
+    html,body{
+      height:100%;margin:0;
+      background:linear-gradient(135deg,#0b0c10,#1f2833);
+      color:#fff;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      display:flex;justify-content:center;align-items:center;text-align:center;
+    }
+    .card{padding:30px 24px;border-radius:16px;background:#121417;box-shadow:0 0 25px rgba(0,0,0,.6);}
+    h1{margin:0 0 12px;font-size:32px;}
+    p{margin:0 0 18px;color:#cfcfcf;}
+    .gif{width:260px;border-radius:10px;margin-bottom:16px;}
+    .btn{
+      background:#2b6ef6;color:#fff;border:none;padding:12px 24px;
+      border-radius:8px;font-weight:600;cursor:pointer;font-size:16px;
+      transition:background .3s ease,transform .2s ease;
+    }
+    .btn:hover{background:#1e53c9;transform:translateY(-1px);}
+    #after{margin-top:18px;font-size:15px;color:#aaa;display:none;}
+    #insta{margin-top:10px;font-size:15px;display:none;}
+    a{color:#8ab4f8;text-decoration:none;}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>👀 What are you doing here?</h1>
+    <p>Just say hi already 😏</p>
+    <img class="gif" id="gif" src="https://media.giphy.com/media/3og0IPMe4v6R0xN2zq/giphy.gif" alt="caught you">
+    <button class="btn" id="sayHi">Say hi 👋</button>
+    <p id="after">Alright... you’ve been caught 😆</p>
+    <div id="insta">👉 <a href="https://www.instagram.com/sebri__n00r/" target="_blank">@sebri__n00r</a></div>
+  </div>
+
+  <script>
+    const btn=document.getElementById('sayHi');
+    const gif=document.getElementById('gif');
+    const after=document.getElementById('after');
+    const insta=document.getElementById('insta');
+
+    btn.addEventListener('click',()=>{
+      btn.textContent='Hey there 👋';
+      btn.disabled=true;
+      gif.src='https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif';
+      after.style.display='block';
+      setTimeout(()=>{insta.style.display='block';insta.style.opacity=0;
+        insta.animate([{opacity:0},{opacity:1}],{duration:800,fill:'forwards'});},600);
+    });
+  </script>
+</body>
+</html>
