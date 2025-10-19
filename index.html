@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>What are you doing here?</title>
+  <style>
+    /* simple, friendly styling */
+    html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+    .wrap{display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;padding:24px;text-align:center;background:linear-gradient(135deg,#f8f0ff,#fff8f2)}
+    .card{max-width:720px;background:#fff;border-radius:16px;padding:28px 22px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+    h1{margin:0 0 8px;font-size:30px}
+    p{margin:0 0 18px;color:#444}
+    .meme{width:100%;max-width:420px;border-radius:12px;margin:12px 0;display:block}
+    .btn{display:inline-block;padding:12px 18px;border-radius:10px;border:0;background:#2b6ef6;color:#fff;font-weight:600;cursor:pointer;text-decoration:none}
+    .small{font-size:13px;color:#777;margin-top:12px}
+    .hidden{display:none}
+    @media (max-width:420px){h1{font-size:22px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" id="card">
+      <h1>👀 What are you doing here?</h1>
+      <p>Just say hi — we see you stalking my profile 😏</p>
+
+      <!-- Change the src to any funny GIF or image if you like -->
+      <img src="https://i.imgur.com/4M7IWwP.png" alt="meme" class="meme" id="meme">
+
+      <button class="btn" id="sayHi">Say hi 👋</button>
+      <p class="small" id="after" style="display:none">Nice. Now you know the secret — congrats. 🎉</p>
+    </div>
+  </div>
+
+  <script>
+    // playful interactions
+    const btn = document.getElementById('sayHi');
+    const after = document.getElementById('after');
+    const meme = document.getElementById('meme');
+
+    btn.addEventListener('click', () => {
+      // change text
+      btn.textContent = 'Hey! 👋';
+      btn.disabled = true;
+
+      // flip meme to another image or GIF for effect
+      meme.src = 'https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif'; // playful GIF
+      after.style.display = 'block';
+      
+      // small confetti effect (tiny)
+      for(let i=0;i<25;i++){
+        const s = document.createElement('div');
+        s.style.position='fixed';
+        s.style.left = Math.random()*100+'%';
+        s.style.top = Math.random()*20+'%';
+        s.style.width='10px';
+        s.style.height='10px';
+        s.style.borderRadius='2px';
+        s.style.background = ['#ff5c5c','#ffb86b','#5ce1a7','#6ea8fe'][Math.floor(Math.random()*4)];
+        s.style.opacity = '0.9';
+        s.style.transform = 'translateY(0)';
+        s.style.transition = 'transform 1.2s linear, opacity 1.2s linear';
+        document.body.appendChild(s);
+        requestAnimationFrame(()=> s.style.transform = 'translateY(120vh)');
+        setTimeout(()=> { s.style.opacity = '0'; setTimeout(()=> s.remove(),1200); }, 1100);
+      }
+    });
+
+    // optionally prevent the page from being embedded (for safety/appearance)
+    if (window.top !== window.self) {
+      document.getElementById('card').style.border = '2px dashed #f0f';
+    }
+  </script>
+</body>
+</html>
