@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hagerna — ሃገርና — Your Guide to Belgium</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #2D6A4F;
+    --green-light: #40916C;
+    --green-pale: #D8F3DC;
+    --gold: #C9A84C;
+    --gold-light: #F4D58D;
+    --cream: #FDFAF4;
+    --dark: #1A2E22;
+    --text: #2C3E35;
+    --text-light: #5A7265;
+    --border: #C8DDD0;
+    --white: #FFFFFF;
+    --red-flag: #CE1126;
+    --blue-flag: #4189DD;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    background: var(--dark);
+    padding: 10px 0;
+    text-align: center;
+  }
+  .topbar-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .topbar-msg {
+    color: var(--gold-light);
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+  .lang-switcher {
+    display: flex;
+    gap: 6px;
+  }
+  .lang-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.7);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: 'Source Sans 3', sans-serif;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+  }
+  .lang-btn:hover, .lang-btn.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--dark);
+    font-weight: 600;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--white);
+    border-bottom: 3px solid var(--green-pale);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+  }
+  .logo-icon {
+    width: 46px;
+    height: 46px;
+    background: var(--green);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .logo-icon svg { width: 26px; height: 26px; fill: white; }
+  .logo-text { display: flex; flex-direction: column; line-height: 1; }
+  .logo-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--green);
+    letter-spacing: -0.3px;
+  }
+  .logo-tigrinya {
+    font-size: 13px;
+    color: var(--text-light);
+    font-weight: 300;
+    margin-top: 2px;
+  }
+
+  nav { display: flex; gap: 4px; align-items: center; flex-wrap: wrap; }
+  .nav-link {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 7px 14px;
+    border-radius: 8px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .nav-link:hover { background: var(--green-pale); color: var(--green); }
+  .nav-link.active { background: var(--green); color: white; }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--dark) 0%, #1E4030 50%, var(--green) 100%);
+    padding: 80px 20px 70px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 380px; height: 380px;
+    background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(64,145,108,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(201,168,76,0.2);
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold-light);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 52px);
+    color: white;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+  .hero h1 span { color: var(--gold-light); }
+  .hero p {
+    color: rgba(255,255,255,0.78);
+    font-size: clamp(15px, 2vw, 18px);
+    max-width: 600px;
+    margin-bottom: 32px;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+  .hero-cta {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--dark);
+    padding: 13px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.25s;
+    border: 2px solid var(--gold);
+    cursor: pointer;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(201,168,76,0.3); }
+  .btn-secondary {
+    background: transparent;
+    color: white;
+    padding: 13px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    border: 2px solid rgba(255,255,255,0.35);
+    transition: all 0.25s;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .btn-secondary:hover { border-color: white; background: rgba(255,255,255,0.08); }
+
+  .hero-stats {
+    display: flex;
+    gap: 36px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+  }
+  .stat { display: flex; flex-direction: column; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gold-light);
+  }
+  .stat-label { color: rgba(255,255,255,0.55); font-size: 13px; font-weight: 300; }
+
+  /* ── DISCLAIMER BANNER ── */
+  .disclaimer {
+    background: #FFF8E7;
+    border-left: 4px solid var(--gold);
+    padding: 14px 20px;
+  }
+  .disclaimer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .disclaimer-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .disclaimer p { font-size: 13px; color: #7A6020; line-height: 1.5; }
+  .disclaimer strong { color: #5A4010; }
+
+  /* ── SECTION WRAPPER ── */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 3vw, 32px);
+    color: var(--dark);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .section-subtitle {
+    color: var(--text-light);
+    font-size: 16px;
+    margin-bottom: 36px;
+    font-weight: 300;
+  }
+  .section-divider {
+    width: 48px; height: 3px;
+    background: var(--gold);
+    border-radius: 2px;
+    margin-bottom: 12px;
+  }
+
+  /* ── TOPIC GRID ── */
+  .topic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .topic-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.25s;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .topic-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--green);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: left;
+  }
+  .topic-card:hover { border-color: var(--green-light); box-shadow: 0 8px 24px rgba(45,106,79,0.1); transform: translateY(-2px); }
+  .topic-card:hover::before { transform: scaleX(1); }
+  .topic-icon {
+    width: 50px; height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .topic-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--dark);
+    line-height: 1.3;
+  }
+  .topic-card p {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.6;
+    flex: 1;
+  }
+  .topic-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4px;
+  }
+  .topic-time {
+    font-size: 12px;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .topic-arrow {
+    width: 28px; height: 28px;
+    background: var(--green-pale);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--green);
+    font-size: 14px;
+    transition: all 0.2s;
+  }
+  .topic-card:hover .topic-arrow { background: var(--green); color: white; }
+
+  /* ── DETAIL PANEL (GUIDE) ── */
+  .guide-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(26,46,34,0.5);
+    z-index: 200;
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.2s ease;
+  }
+  .guide-overlay.open { display: flex; align-items: flex-start; justify-content: flex-end; }
+  .guide-panel {
+    background: var(--white);
+    width: min(640px, 100vw);
+    height: 100vh;
+    overflow-y: auto;
+    box-shadow: -8px 0 40px rgba(0,0,0,0.15);
+    animation: slideIn 0.3s ease;
+  }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+
+  .guide-header {
+    padding: 28px 32px 24px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .guide-header-left { display: flex; flex-direction: column; gap: 8px; }
+  .guide-tag {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--green);
+    background: var(--green-pale);
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .guide-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.3;
+  }
+  .close-btn {
+    background: var(--green-pale);
+    border: none;
+    border-radius: 50%;
+    width: 36px; height: 36px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--green);
+    font-size: 18px;
+    flex-shrink: 0;
+    transition: all 0.2s;
+  }
+  .close-btn:hover { background: var(--green); color: white; }
+
+  .guide-body { padding: 28px 32px; }
+  .guide-intro {
+    font-size: 15px;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 28px;
+    font-weight: 300;
+    padding: 16px 20px;
+    background: var(--green-pale);
+    border-radius: 10px;
+    border-left: 3px solid var(--green);
+  }
+  .step-list { display: flex; flex-direction: column; gap: 0; }
+  .step {
+    display: flex;
+    gap: 16px;
+    padding-bottom: 28px;
+    position: relative;
+  }
+  .step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 18px;
+    top: 42px;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+  }
+  .step-num {
+    width: 38px; height: 38px;
+    background: var(--green);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .step-content { flex: 1; padding-top: 6px; }
+  .step-content h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 6px;
+  }
+  .step-content p {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+  .step-content ul {
+    margin-top: 8px;
+    padding-left: 18px;
+  }
+  .step-content ul li {
+    font-size: 13.5px;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 4px;
+  }
+  .step-badge {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-top: 8px;
+  }
+  .badge-warn { background: #FFF3CD; color: #856404; }
+  .badge-tip { background: var(--green-pale); color: var(--green); }
+  .badge-time { background: #E8F4FD; color: #0563C1; }
+
+  .guide-resources {
+    margin-top: 32px;
+    padding: 20px;
+    background: var(--cream);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+  .guide-resources h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .resource-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+    text-decoration: none;
+    color: var(--green);
+    font-size: 14px;
+    font-weight: 500;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s;
+  }
+  .resource-link:last-child { border-bottom: none; }
+  .resource-link:hover { color: var(--green-light); }
+
+  /* ── QUICK HELP STRIP ── */
+  .quickhelp {
+    background: var(--green);
+    padding: 40px 20px;
+  }
+  .quickhelp-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  .quickhelp-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+  }
+  .quickhelp-icon {
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+  .quickhelp-text strong { display: block; font-size: 14px; font-weight: 600; }
+  .quickhelp-text span { font-size: 13px; opacity: 0.75; }
+
+  /* ── LETTER DECODER TEASER ── */
+  .decoder-section {
+    background: linear-gradient(135deg, #1A2E22, #2D6A4F);
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .decoder-section::before {
+    content: '📄';
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 180px;
+    opacity: 0.04;
+  }
+  .decoder-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: center;
+  }
+  .decoder-text .eyebrow {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .decoder-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 3vw, 34px);
+    color: white;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .decoder-text p {
+    color: rgba(255,255,255,0.65);
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 500px;
+    margin-bottom: 24px;
+    font-weight: 300;
+  }
+  .coming-soon {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold-light);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.6);
+    padding: 50px 20px 30px;
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  .footer-brand .logo-main { color: var(--gold-light); font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 10px; display: block; }
+  .footer-brand p { font-size: 13px; line-height: 1.7; max-width: 280px; }
+  .footer-col h4 { color: white; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 14px; }
+  .footer-col a { display: block; color: rgba(255,255,255,0.55); text-decoration: none; font-size: 13px; margin-bottom: 8px; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--gold-light); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 12px;
+  }
+  .eritrea-flag {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+  .flag-stripe {
+    width: 14px; height: 7px;
+    border-radius: 1px;
+  }
+
+  /* ── TRANSLATIONS ── */
+  [data-lang] { display: none; }
+  [data-lang].active { display: block; }
+  .inline-lang { display: none; }
+  .inline-lang.active { display: inline; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .header-inner { flex-direction: column; align-items: flex-start; }
+    nav { width: 100%; overflow-x: auto; padding-bottom: 4px; flex-wrap: nowrap; }
+    .decoder-inner { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+    .topbar-inner { flex-direction: column; align-items: flex-start; }
+    .hero-stats { gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="topbar-msg">
+      <span data-lang="en" class="active">Free information for Eritreans in Belgium &amp; Europe — no registration needed</span>
+      <span data-lang="ti">ናጻ ሓበሬታ ንኤርትራውያን ኣብ ቤልጂዩምን ኤውሮጳን — ምዝገባ ኣይሓተትን</span>
+      <span data-lang="ar">معلومات مجانية للإريتريين في بلجيكا وأوروبا — لا حاجة للتسجيل</span>
+    </span>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('ti')">ትግርኛ</button>
+      <button class="lang-btn" onclick="setLang('ar')">عربي</button>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15H9V8h2v9zm4 0h-2V8h2v9z"/></svg>
+      </div>
+      <div class="logo-text">
+        <span class="logo-main">Hagerna</span>
+        <span class="logo-tigrinya">ሃገርና — Our Country</span>
+      </div>
+    </a>
+    <nav>
+      <a class="nav-link active" href="#" onclick="showSection('home')">
+        <span data-lang="en" class="active">Home</span>
+        <span data-lang="ti">መእተዊ</span>
+        <span data-lang="ar">الرئيسية</span>
+      </a>
+      <a class="nav-link" href="#topics">
+        <span data-lang="en" class="active">Guides</span>
+        <span data-lang="ti">መምርሒ</span>
+        <span data-lang="ar">الأدلة</span>
+      </a>
+      <a class="nav-link" href="#decoder">
+        <span data-lang="en" class="active">Letter Help</span>
+        <span data-lang="ti">ደብዳቤ</span>
+        <span data-lang="ar">ترجمة الخطابات</span>
+      </a>
+      <a class="nav-link" href="#help">
+        <span data-lang="en" class="active">Get Help</span>
+        <span data-lang="ti">ሓገዝ</span>
+        <span data-lang="ar">احصل على مساعدة</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🇧🇪 Belgium · Europe</div>
+    <h1>
+      <span data-lang="en" class="active">Navigating Belgium,<br><span>step by step.</span></span>
+      <span data-lang="ti">ቤልጂዩም ምርዳእ፡<br><span>ስጉምቲ ብስጉምቲ።</span></span>
+      <span data-lang="ar">التنقل في بلجيكا،<br><span>خطوة بخطوة.</span></span>
+    </h1>
+    <p>
+      <span data-lang="en" class="active">Clear, honest guides on family reunion, nationality, benefits, housing and more — written by an Eritrean who has lived in Belgium for 12 years. In Tigrinya, Arabic and English.</span>
+      <span data-lang="ti">ንጹር ሓበሬታ ብዛዕባ ምትእኽኻብ ስድራ፡ ዜግነት፡ ጥቕምታት፡ መንበሪን ካልእን — ዝተጸሓፈ ብኤርትራዊ ኣብ ቤልጂዩም 12 ዓመት ዝነብር። ብትግርኛ፡ ዓረብኛን እንግሊዝኛን።</span>
+      <span data-lang="ar">أدلة واضحة وصادقة حول لمّ شمل الأسرة، والجنسية، والمزايا، والإسكان والمزيد — كتبها إريتري يعيش في بلجيكا منذ 12 عامًا. بالتيغرينية والعربية والإنجليزية.</span>
+    </p>
+    <div class="hero-cta">
+      <a class="btn-primary" href="#topics">
+        <span data-lang="en" class="active">Browse Guides →</span>
+        <span data-lang="ti">መምርሒ ርአ →</span>
+        <span data-lang="ar">تصفح الأدلة →</span>
+      </a>
+      <a class="btn-secondary" href="#decoder">
+        <span data-lang="en" class="active">Decode a Letter</span>
+        <span data-lang="ti">ደብዳቤ ተርጉም</span>
+        <span data-lang="ar">ترجمة خطاب</span>
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">8+</span><span class="stat-label">
+        <span data-lang="en" class="active">Step-by-step guides</span>
+        <span data-lang="ti">መምርሒታት</span>
+        <span data-lang="ar">أدلة خطوة بخطوة</span>
+      </span></div>
+      <div class="stat"><span class="stat-num">3</span><span class="stat-label">
+        <span data-lang="en" class="active">Languages</span>
+        <span data-lang="ti">ቋንቋታት</span>
+        <span data-lang="ar">لغات</span>
+      </span></div>
+      <div class="stat"><span class="stat-num">Free</span><span class="stat-label">
+        <span data-lang="en" class="active">Always &amp; forever</span>
+        <span data-lang="ti">ኩሉ ጊዜ ናጻ</span>
+        <span data-lang="ar">مجاني دائمًا</span>
+      </span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <div class="disclaimer-inner">
+    <span class="disclaimer-icon">⚠️</span>
+    <p>
+      <strong>
+        <span data-lang="en" class="active">Important:</span>
+        <span data-lang="ti">ኣገዳሲ:</span>
+        <span data-lang="ar">مهم:</span>
+      </strong>
+      <span data-lang="en" class="active"> This website provides general information only — not legal advice. Rules change. Always verify with CGRA, DVZ, or a recognized lawyer before making decisions.</span>
+      <span data-lang="ti"> እዚ ወብሳይት ሓፈሻዊ ሓበሬታ ጥራይ ይህብ — ናይ ሕጊ ምኽሪ ኣይኮነን። ሕግታት ይቕየሩ። ቅድሚ ውሳነ ምውሳን ምስ CGRA፡ DVZ፡ ወይ ኣፍልጦ ዝተዋህቦ ጠበቓ ኩሉ ጊዜ ኣረጋግጽ።</span>
+      <span data-lang="ar"> يقدم هذا الموقع معلومات عامة فقط — وليس استشارة قانونية. القواعد تتغير. تحقق دائمًا مع CGRA أو DVZ أو محامٍ معتمد قبل اتخاذ أي قرار.</span>
+    </p>
+  </div>
+</div>
+
+<!-- TOPICS -->
+<section id="topics">
+  <div class="section">
+    <div class="section-divider"></div>
+    <h2 class="section-title">
+      <span data-lang="en" class="active">All Guides</span>
+      <span data-lang="ti">ኩሎም መምርሒታት</span>
+      <span data-lang="ar">جميع الأدلة</span>
+    </h2>
+    <p class="section-subtitle">
+      <span data-lang="en" class="active">Click any guide to read the full step-by-step breakdown.</span>
+      <span data-lang="ti">ዝኾነ መምርሒ ጠውቕ ምሉእ ስጉምታት ንምንባብ።</span>
+      <span data-lang="ar">انقر على أي دليل لقراءة التفاصيل الكاملة خطوة بخطوة.</span>
+    </p>
+    <div class="topic-grid">
+
+      <!-- Family Reunion -->
+      <div class="topic-card" onclick="openGuide('family')">
+        <div class="topic-icon" style="background:#E8F5E9;">👨‍👩‍👧</div>
+        <h3><span data-lang="en" class="active">Family Reunion</span><span data-lang="ti">ምትእኽኻብ ስድራ</span><span data-lang="ar">لمّ شمل الأسرة</span></h3>
+        <p><span data-lang="en" class="active">How to bring your spouse, children or parents to Belgium. Income requirements, documents needed, and timelines.</span><span data-lang="ti">ብዕቱ ንሰብ-ሓዳርካ፡ ደቅኻ ወይ ወለድኻ ናብ ቤልጂዩም ምምጻእ።</span><span data-lang="ar">كيفية جلب زوجك أو أطفالك أو والديك إلى بلجيكا.</span></p>
+        <div class="topic-meta">
+          <span class="topic-time">⏱ <span data-lang="en" class="active">8 steps</span><span data-lang="ti">8 ስጉምቲ</span><span data-lang="ar">٨ خطوات</span></span>
+          <div class="topic-arrow">→</div>
+        </div>
+      </div>
+
+      <!-- Naturalization -->
+      <div class="topic-card" onclick="openGuide('nationality')">
+        <div class="topic-icon" style="background:#FFF3E0;">🇧🇪</div>
+        <h3><span data-lang="en" class="active">Belgian Nationality</span><span data-lang="ti">ቤልጂዩማዊ ዜግነት</span><span data-lang="ar">الجنسية البلجيكية</span></h3>
+        <p><span data-lang="en" class="active">When can you apply, what are the requirements, what documents to prepare, and how long it takes.</span><span data-lang="ti">መዓስ ምምልካት ይከኣል፡ ዘድሊ ሰነዳት፡ ክሳብ ዝወድቕ ዝወስዶ ግዜ።</span><span data-lang="ar">متى يمكنك التقديم، وما هي المتطلبات، والمستندات اللازمة.</span></p>
+        <div class="topic-meta">
+          <span class="topic-time">⏱ <span data-lang="en" class="active">7 steps</span><span data-lang="ti">7 ስጉምቲ</span><span data-lang="ar">٧ خطوات</span></span>
+          <div class="topic-arrow">→</div>
+        </div>
+      </div>
+
+      <!-- Unemployment -->
+      <div class="topic-card" onclick="openGuide('unemployment')">
+        <div class="topic-icon" style="background:#E3F2FD;">💼</div>
+        <h3><span data-lang="en" class="active">Unemployment Benefits</span><span data-lang="ti">ጥቕሚ ስራሕ-ኣልቦነት</span><span data-lang="ar">مزايا البطالة</span></h3>
+        <p><span data-lang="en" class="active">How to register with ONEM/RVA after losing a job. Who qualifies, what to bring, and how much you receive.</span><span data-lang="ti">ምስ ONEM/RVA ናይ ምምዝጋብ ስርዓት ድሕሪ ስራሕ ምስኣን።</span><span data-lang="ar">كيفية التسجيل في ONEM/RVA بعد فقدان العمل.</span></p>
+        <div class="topic-meta">
+          <span class="topic-time">⏱ <span data-lang="en" class="active">6 steps</span><span data-lang="ti">6 ስጉምቲ</span><span data-lang="ar">٦ خطوات</span></span>
+          <div class="topic-arrow">→</div>
+        </div>
+      </div>
+
+      <!-- CPAS / Social Aid -->
+      <div class="topic-card" onclick="openGuide('cpas')">
+        <div class="topic-icon" style="background:#F3E5F5;">🏛️</div>
+        <h3><span data-lang="en" class="active">CPAS Social Aid</span><span data-lang="ti">ማሕበራዊ ሓገዝ CPAS</span><span data-lang="ar">المساعدة الاجتماعية CPAS</span></h3>
+        <p><span data-lang="en" class="active">If you have no income, CPAS can help with monthly payments, housing, and health coverage. Here is how to apply.</span><span data-lang="ti">እንተዘይሃሊኹ እቶት፡ CPAS ብወርሓዊ ክፍሊት፡ መቐመጢን ጥዕናን ክሕግዘካ ይኽእል።</span><span data-lang="ar">إذا لم يكن لديك دخل، يمكن لـ CPAS مساعدتك بمدفوعات شهرية وإسكان ورعاية صحية.</span></p>
+        <div class="topic-meta">
+          <span class="topic-time">⏱ <span data-lang="en" class="active">5 steps</span><span data-lang="ti">5 ስጉምቲ</span><span data-lang="ar">٥ خطوات</span></span>
+          <div class="topic-arrow">→</div>
+        </div>
+      </div>
+
+      <!-- Commune / eID -->
+      <div class="topic-card" onclick="openGuide('commune')">
+        <div class="topic-icon" style="background:#E8EAF6;">🪪</div>
+        <h3><span data-lang="en" class="active">Commune &amp; eID Card</span><span data-lang="ti">ኮምዩን ን eID ካርድ</span><span data-lang="ar">البلدية وبطاقة الهوية الإلكترونية</span></h3>
+        <p><span data-lang="en" class="active">Registering your address, getting your identity card, and what happens at each appointment at the commune.</span><span data-lang="ti">ኣድርሻኻ ምምዝጋብ፡ መንነት ካርድ ምርካብ፡ ኣብ ኮምዩን ዝኸውን ነገር።</span><span data-lang="ar">تسجيل عنوانك، والحصول على بطاقة هويتك، وما يحدث في كل موعد بالبلدية.</span></p>
+        <div class="topic-meta">
+          <span class="topic-time">⏱ <span data-lang="en" class="active">5 steps</span><span data-lang="ti">5 ስጉምቲ</span><span data-lang="ar">٥ خطوات</span></span>
+          <div class="topic-arrow">→</div>
+        </div>
+      </div>
+
+      <!-- Health Insurance -->
+      <div class="topic-card" onclick="openGuide('health')">
+        <div class="topic-icon" style="background:#E0F7FA;">🏥</div>
+        <h3><span data-lang="en" class="active">Health Insurance (Mutuality)</span><span data-lang="ti">ጥዕና ዋሕስ</span><span data-lang="ar">التأمين الصحي</span></h3>
+        <p><span data-lang="en" class="active">How to join a mutuality, what costs are covered, and the difference between CPAS medical aid and regular insurance.</span><span data-lang="ti">ናብ ሙቹዋሊቴ ምጽንባር፡ ዝሽፈን ክፍሊታት፡ ፍልልይ CPAS ሕክምናዊ ሓገዝን ሙቹዋሊቴን።</span><span data-lang="ar">كيفية الانضمام إلى صندوق التأمين، والتكاليف المغطاة، والفرق بين المساعدة الطبية من CPAS والتأمين العادي.</span></p>
+        <div class="topic-meta">
+          <span class="topic-time">⏱ <span data-lang="en" class="active">4 steps</span><span data-lang="ti">4 ስጉምቲ</span><span data-lang="ar">٤ خطوات</span></span>
+          <div class="topic-arrow">→</div>
+        </div>
+      </div>
+
+      <!-- Work Permit -->
+      <div class="topic-card" onclick="openGuide('work')">
+        <div class="topic-icon" style="background:#FFF8E1;">🔑</div>
+        <h3><span data-lang="en" class="active">Work Rights &amp; Permits</span><span data-lang="ti">መሰል ስራሕን ፍቓድን</span><span data-lang="ar">حقوق العمل والتصاريح</span></h3>
+        <p><span data-lang="en" class="active">When you can work freely vs. when you need a permit. How your status affects your right to work in Belgium.</span><span data-lang="ti">መዓስ ብናጻ ምስራሕ ይከኣል vs. መዓስ ፍቓድ ይሓትት።</span><span data-lang="ar">متى يمكنك العمل بحرية مقابل متى تحتاج إلى تصريح.</span></p>
+        <div class="topic-meta">
+          <span class="topic-time">⏱ <span data-lang="en" class="active">5 steps</span><span data-lang="ti">5 ስጉምቲ</span><span data-lang="ar">٥ خطوات</span></span>
+          <div class="topic-arrow">→</div>
+        </div>
+      </div>
+
+      <!-- Housing -->
+      <div class="topic-card" onclick="openGuide('housing')">
+        <div class="topic-icon" style="background:#FCE4EC;">🏠</div>
+        <h3><span data-lang="en" class="active">Finding Housing</span><span data-lang="ti">ምርካብ መቐመጢ</span><span data-lang="ar">إيجاد مسكن</span></h3>
+        <p><span data-lang="en" class="active">Social housing applications, private rental rights, CPAS housing help, and what landlords can and cannot ask you.</span><span data-lang="ti">ምልክታ ማሕበራዊ ቤት፡ ናይ ክራይ መሰላት፡ ሓደ ዓራት ዘይፈቑዱ ኣካይዳ።</span><span data-lang="ar">طلبات الإسكان الاجتماعي، وحقوق الإيجار الخاصة، ومساعدة CPAS في السكن.</span></p>
+        <div class="topic-meta">
+          <span class="topic-time">⏱ <span data-lang="en" class="active">6 steps</span><span data-lang="ti">6 ስጉምቲ</span><span data-lang="ar">٦ خطوات</span></span>
+          <div class="topic-arrow">→</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- QUICK HELP STRIP -->
+<div class="quickhelp" id="help">
+  <div class="quickhelp-inner">
+    <div class="quickhelp-item">
+      <span class="quickhelp-icon">📞</span>
+      <div class="quickhelp-text">
+        <strong><span data-lang="en" class="active">Myria (Migration)</span><span data-lang="ti">Myria</span><span data-lang="ar">Myria</span></strong>
+        <span>02 212 30 00</span>
+      </div>
+    </div>
+    <div class="quickhelp-item">
+      <span class="quickhelp-icon">🛡️</span>
+      <div class="quickhelp-text">
+        <strong>CGRA / CGVS</strong>
+        <span>02 205 51 11</span>
+      </div>
+    </div>
+    <div class="quickhelp-item">
+      <span class="quickhelp-icon">🤝</span>
+      <div class="quickhelp-text">
+        <strong>UNHCR Belgium</strong>
+        <span>02 649 01 53</span>
+      </div>
+    </div>
+    <div class="quickhelp-item">
+      <span class="quickhelp-icon">⚖️</span>
+      <div class="quickhelp-text">
+        <strong><span data-lang="en" class="active">Free Legal Aid</span><span data-lang="ti">ናጻ ሕጋዊ ሓገዝ</span><span data-lang="ar">المساعدة القانونية المجانية</span></strong>
+        <span>Bureau d'aide juridique</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LETTER DECODER TEASER -->
+<div class="decoder-section" id="decoder">
+  <div class="decoder-inner">
+    <div class="decoder-text">
+      <p class="eyebrow">
+        <span data-lang="en" class="active">Coming Soon</span>
+        <span data-lang="ti">ቀሪቡ ይመጽእ</span>
+        <span data-lang="ar">قريبًا</span>
+      </p>
+      <h2>
+        <span data-lang="en" class="active">Got a scary letter from the government?</span>
+        <span data-lang="ti">ካብ መንግስቲ ዘፍርሕ ደብዳቤ ረኸብካ?</span>
+        <span data-lang="ar">تلقيت خطابًا مخيفًا من الحكومة؟</span>
+      </h2>
+      <p>
+        <span data-lang="en" class="active">Upload a photo of any official letter — from DVZ, commune, ONEM, or a court — and get a plain-language explanation in Tigrinya, Arabic or English. Know exactly what it says, what you must do, and by when.</span>
+        <span data-lang="ti">ፎቶ ናይ ዝኾነ ወግዓዊ ደብዳቤ ጻዕር — ካብ DVZ፡ ኮምዩን፡ ONEM፡ ወይ ቤት-ፍርዲ — ድሕሪኡ ብትግርኛ፡ ዓረብኛ ወይ እንግሊዝኛ ንጹር ሓበሬታ ርካብ።</span>
+        <span data-lang="ar">ارفع صورة لأي خطاب رسمي — من DVZ أو البلدية أو ONEM أو المحكمة — واحصل على شرح بلغة بسيطة بالتيغرينية أو العربية أو الإنجليزية.</span>
+      </p>
+      <div class="coming-soon">
+        🔔 <span data-lang="en" class="active">Letter Decoder — Layer 2, launching soon</span>
+        <span data-lang="ti">ትርጓሜ ደብዳቤ — ቀሪቡ ይጅምር</span>
+        <span data-lang="ar">فك تشفير الخطابات — قريبًا</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo-main">Hagerna · ሃገርና</span>
+        <p>
+          <span data-lang="en" class="active">Built by an Eritrean, for Eritreans. Independent, free, and not affiliated with any government or political organization.</span>
+          <span data-lang="ti">ብኤርትራዊ ተሃኒጹ፡ ንኤርትራውያን። ናጻ፡ ካብ ዝኾነ መንግስቲ ወይ ፖለቲካዊ ውድብ ዘይተኣሳሰር።</span>
+          <span data-lang="ar">بنيت بواسطة إريتري، للإريتريين. مستقلة ومجانية وغير تابعة لأي حكومة أو منظمة سياسية.</span>
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4><span data-lang="en" class="active">Guides</span><span data-lang="ti">መምርሒ</span><span data-lang="ar">الأدلة</span></h4>
+        <a href="#" onclick="openGuide('family')"><span data-lang="en" class="active">Family Reunion</span><span data-lang="ti">ምትእኽኻብ ስድራ</span><span data-lang="ar">لمّ الشمل</span></a>
+        <a href="#" onclick="openGuide('nationality')"><span data-lang="en" class="active">Nationality</span><span data-lang="ti">ዜግነት</span><span data-lang="ar">الجنسية</span></a>
+        <a href="#" onclick="openGuide('unemployment')"><span data-lang="en" class="active">Unemployment</span><span data-lang="ti">ስራሕ-ኣልቦነት</span><span data-lang="ar">البطالة</span></a>
+        <a href="#" onclick="openGuide('cpas')">CPAS</a>
+        <a href="#" onclick="openGuide('health')"><span data-lang="en" class="active">Health</span><span data-lang="ti">ጥዕና</span><span data-lang="ar">الصحة</span></a>
+      </div>
+      <div class="footer-col">
+        <h4><span data-lang="en" class="active">Help</span><span data-lang="ti">ሓገዝ</span><span data-lang="ar">المساعدة</span></h4>
+        <a href="https://www.cgvs.be" target="_blank">CGRA / CGVS</a>
+        <a href="https://www.dvz.be" target="_blank">DVZ / OE</a>
+        <a href="https://www.onem.be" target="_blank">ONEM / RVA</a>
+        <a href="https://www.unhcr.org/be" target="_blank">UNHCR Belgium</a>
+        <a href="https://www.myria.be" target="_blank">Myria</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Hagerna · ሃገርና · Not legal advice</span>
+      <span>🇧🇪 Belgium · 🇪🇷 Eritrea</span>
+    </div>
+  </div>
+</footer>
+
+<!-- GUIDE OVERLAY -->
+<div class="guide-overlay" id="guideOverlay" onclick="closeGuideOnBg(event)">
+  <div class="guide-panel" id="guidePanel">
+    <div class="guide-header">
+      <div class="guide-header-left">
+        <span class="guide-tag" id="guideTag">Guide</span>
+        <h2 id="guideTitle">Guide Title</h2>
+      </div>
+      <button class="close-btn" onclick="closeGuide()">✕</button>
+    </div>
+    <div class="guide-body" id="guideBody"></div>
+  </div>
+</div>
+
+<script>
+// ── LANGUAGE ──
+function setLang(lang) {
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    el.classList.toggle('active', el.dataset.lang === lang);
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.trim().toLowerCase().includes(lang) || btn.onclick.toString().includes(`'${lang}'`));
+  });
+  currentLang = lang;
+}
+let currentLang = 'en';
+
+// ── GUIDES DATA ──
+const guides = {
+  family: {
+    tag: { en: 'Family Reunion', ti: 'ምትእኽኻብ ስድራ', ar: 'لمّ شمل الأسرة' },
+    title: { en: 'Family Reunion in Belgium', ti: 'ምትእኽኻብ ስድራ ኣብ ቤልጂዩም', ar: 'لمّ شمل الأسرة في بلجيكا' },
+    intro: {
+      en: 'If you have a valid residence permit (and meet income requirements), you can apply for your spouse, minor children, and in some cases parents to join you in Belgium. This process is managed by the Immigration Office (DVZ/OE).',
+      ti: 'ሕጋዊ ናይ መቐመጢ ፍቓድ እንተሃሊዩካ (ናይ እቶት ሕቶታት ምምላእ ምስ ዝከኣል)፡ ንሰብ-ሓዳርካ፡ ቆልዑ፡ ወለዲ ናብ ቤልጂዩም ክጽንበሩኻ ምልክታ ከተቕርብ ትኽእል።',
+      ar: 'إذا كان لديك تصريح إقامة ساري المفعول (وتستوفي متطلبات الدخل)، يمكنك التقدم بطلب لانضمام زوجك وأطفالك القاصرين وفي بعض الحالات والديك إليك في بلجيكا.'
+    },
+    steps: [
+      {
+        title: { en: 'Check if you qualify', ti: 'ተቐዳዲምካ ኣረጋግጽ', ar: 'تحقق من أهليتك' },
+        body: {
+          en: 'You need: a valid residence permit of at least 12 months, a stable income above the "living wage" threshold (currently ~€1,800/month net), and proof of a real family relationship.',
+          ti: 'ትሕተ: ናይ 12 ወርሒ ናይ መቐመጢ ፍቓድ፡ ናይ እቶት ደረጃ ልዕሊ (~€1,800/ወርሒ)፡ ናይ ሓቀኛ ስድራ ዝምድና ምስክር ወረቐት።',
+          ar: 'تحتاج إلى: تصريح إقامة ساري المفعول لمدة 12 شهرًا على الأقل، ودخل مستقر يتجاوز عتبة الحد الأدنى للمعيشة (حوالي 1800 يورو شهريًا صافيًا)، وإثبات وجود علاقة عائلية حقيقية.'
+        },
+        badge: { type: 'warn', en: 'Income proof is the most common reason for rejection', ti: 'ናይ እቶት ምስክር ዝበዝሕ ምኽንያት ምንካይ', ar: 'إثبات الدخل هو السبب الأكثر شيوعًا للرفض' }
+      },
+      {
+        title: { en: 'Gather your documents', ti: 'ሰነዳትካ ኣዋህልል', ar: 'اجمع وثائقك' },
+        body: {
+          en: 'You will need:',
+          ti: 'ክትሕዝ ዘለካ:',
+          ar: 'ستحتاج إلى:'
+        },
+        list: {
+          en: ['Your valid passport and residence permit', 'Marriage certificate (officially translated and apostilled)', 'Birth certificates of children (translated)', 'Proof of income: 3 payslips + employer letter OR tax declaration', 'Proof of housing: rental contract + sufficient space confirmed'],
+          ti: ['ቅዱስ ፓስፖርትካን ናይ መቐመጢ ፍቓድካን', 'ናይ መርዓ ምስክር ወረቐት (ወግዓዊ ትርጉምን apostille ምስ)', 'ናይ ደቅኻ ናይ ልደት ምስክር ወረቐት (ትርጉም)', 'ናይ እቶት ምስክር: 3 ናይ ደሞዝ ወረቐት + ናይ ወሃብ-ስራሕ ደብዳቤ ወይ ናይ ግብሪ ምስክር', 'ናይ ቤት ምስክር: ናይ ክራይ ኮንትራት + ሰፊሕ ቦታ'],
+          ar: ['جواز سفرك الساري وتصريح الإقامة', 'شهادة الزواج (مترجمة رسميًا ومصادق عليها)', 'شهادات ميلاد الأطفال (مترجمة)', 'إثبات الدخل: 3 كشوف رواتب + رسالة صاحب العمل أو الإقرار الضريبي', 'إثبات السكن: عقد الإيجار + تأكيد مساحة كافية']
+        }
+      },
+      {
+        title: { en: 'Family member applies at Belgian Embassy', ti: 'ኣባል ስድራ ኣብ ቤልጂዩም ኤምባሲ ምልክታ ይቕርብ', ar: 'يتقدم أحد أفراد الأسرة في السفارة البلجيكية' },
+        body: {
+          en: 'Your family member applies for a Type D long-stay visa at the Belgian Embassy in their country. They must bring all documents listed above. The Embassy submits this to DVZ in Belgium.',
+          ti: 'ናይ ስድራ ኣባልካ ኣብ ሃገሩ ዘሎ ቤልጂዩም ኤምባሲ Type D ቪዛ ምልክታ ይቕርብ። ኩሎም ሰነዳት ምስ ዘለዎ ይቀርብ።',
+          ar: 'يتقدم أحد أفراد عائلتك للحصول على تأشيرة طويلة الأمد من النوع D في السفارة البلجيكية في بلده. يجب أن يحضر جميع الوثائق المذكورة أعلاه.'
+        },
+        badge: { type: 'time', en: 'DVZ has 6 months to decide from this point', ti: 'DVZ 6 ወርሒ ናይ ውሳነ ጊዜ ኣለዎ', ar: 'يملك DVZ 6 أشهر لاتخاذ قراره من هذه النقطة' }
+      },
+      {
+        title: { en: 'DVZ reviews the application', ti: 'DVZ ምልክታ ይርኢ', ar: 'يراجع DVZ الطلب' },
+        body: {
+          en: 'The Immigration Office (DVZ) checks income, housing space, and that the relationship is genuine. They may request additional documents or an interview. Do not travel or change jobs during this period without notifying them.',
+          ti: 'DVZ እቶት፡ ቦታ ቤትን ሓቀኛነት ዝምድናን ይርኢ። ወሳኺ ሰነዳት ወይ ቃለ-መሕትት ክሓቱ ይኽእሉ።',
+          ar: 'يتحقق مكتب الهجرة (DVZ) من الدخل ومساحة المسكن وصحة العلاقة. قد يطلبون وثائق إضافية أو مقابلة.'
+        },
+        badge: { type: 'warn', en: 'If rejected, you have 30 days to appeal to the Council for Alien Law Litigation (RvV)', ti: 'ምስ ዝነፍጉ፡ 30 መዓልቲ ናይ ምምልካት ጊዜ ኣለካ', ar: 'في حالة الرفض، لديك 30 يومًا للاستئناف' }
+      },
+      {
+        title: { en: 'Visa issued — family member travels', ti: 'ቪዛ ተዋሂቡ — ስድራ ኣባል ይምጽእ', ar: 'صدور التأشيرة — يسافر فرد العائلة' },
+        body: {
+          en: 'Once approved, the Embassy stamps a Type D visa in the passport. Your family member can travel to Belgium. They have 8 days to register at your commune upon arrival.',
+          ti: 'ምስ ዝጸደቕ፡ ኤምባሲ Type D ቪዛ ኣብ ፓስፖርት ይቕረጽ። ስድራ ኣባልካ ናብ ቤልጂዩም ክምጽእ ይኽእል። ምስ ዝምጽእ ኣብ 8 መዓልቲ ኣብ ኮምዩን ምምዝጋብ ኣለዎ።',
+          ar: 'بمجرد الموافقة، تضع السفارة تأشيرة من النوع D في جواز السفر. يمكن لأحد أفراد عائلتك السفر إلى بلجيكا. لديهم 8 أيام للتسجيل في بلديتك عند الوصول.'
+        },
+        badge: { type: 'tip', en: 'Book the commune appointment in advance — waiting times can be weeks', ti: 'ቆጸራ ኮምዩን ቅድሚ ሕጂ ሕዝ — ናይ ምጽባይ ጊዜ ሰሙናት ክኾን ይኽእል', ar: 'احجز موعد البلدية مسبقًا — أوقات الانتظار قد تصل إلى أسابيع' }
+      },
+      {
+        title: { en: 'Register at the commune & receive residence permit', ti: 'ኣብ ኮምዩን ምምዝጋብን ናይ መቐመጢ ፍቓድ ምርካብን', ar: 'التسجيل في البلدية والحصول على تصريح الإقامة' },
+        body: {
+          en: 'Your family member registers at your local commune with their passport and DVZ approval letter. A commune official visits your home to verify the address. After verification, they receive an Annex 15 (temporary permit) and eventually a full residence card.',
+          ti: 'ኣብ ኮምዩን ምስ ፓስፖርቶምን ናይ DVZ ደብዳቤን ይምዝገቡ። ናይ ኮምዩን ሰራሕተኛ ኣድርሻ ንምርግጋጽ ቤትካ ይምጽእ። ድሕሪ ምርግጋጽ Annex 15 ምስ ዝቕበሉ ዝሓሸ ናይ መቐመጢ ካርድ ይቕበሉ።',
+          ar: 'يسجل أحد أفراد عائلتك في البلدية المحلية بجواز سفره وخطاب موافقة DVZ. يزور موظف البلدية منزلك للتحقق من العنوان. بعد التحقق، يحصلون على Annex 15 (تصريح مؤقت) ثم بطاقة إقامة كاملة.'
+        }
+      },
+      {
+        title: { en: 'Know your rights after arrival', ti: 'ድሕሪ ምምጻእ መሰላትካ ፍለጥ', ar: 'اعرف حقوقك بعد الوصول' },
+        body: {
+          en: 'Once registered, your family member can: access healthcare via mutuality, enroll children in school immediately, work (no separate work permit needed for family reunion holders), and apply for language integration courses.',
+          ti: 'ምስ ዝምዝገቡ፡ ናይ ስድራ ኣባልካ ክገብሮ ዝኽእሎ: ናብ ሙቹዋሊቴ ምጽንባር፡ ቆልዑ ኣብ ቤት-ትምህርቲ ምምዝጋብ፡ ምስራሕ፡ ቋንቋ ምምሃር።',
+          ar: 'بمجرد التسجيل، يمكن لأحد أفراد عائلتك: الحصول على الرعاية الصحية، وتسجيل الأطفال في المدرسة فورًا، والعمل، والتسجيل في دورات الدمج اللغوي.'
+        },
+        badge: { type: 'tip', en: 'Register with a mutuality (health fund) within 3 months to avoid gaps in coverage', ti: 'ኣብ 3 ወርሒ ናብ ሙቹዋሊቴ ምጽንበር', ar: 'انضم إلى صندوق التأمين الصحي خلال 3 أشهر لتجنب انقطاع التغطية' }
+      },
+      {
+        title: { en: 'Timeline summary', ti: 'ናይ ጊዜ ሓጺር ገምጋም', ar: 'ملخص الجدول الزمني' },
+        body: {
+          en: 'Total process typically takes 4–9 months. DVZ: up to 6 months to decide. Visa stamping: 1–2 weeks. Commune registration: 2–6 weeks for the home visit. Patience is essential — follow up every 6–8 weeks if no response.',
+          ti: 'ጠቕላሊ ስርዓት 4–9 ወርሒ ይወስድ። DVZ: ክሳብ 6 ወርሒ ንምውሳን። ቪዛ ምቕዳም: 1–2 ሰሙን። ናይ ኮምዩን ምምዝጋብ: 2–6 ሰሙን።',
+          ar: 'تستغرق العملية الإجمالية عادةً 4-9 أشهر. DVZ: ما يصل إلى 6 أشهر لاتخاذ القرار. ختم التأشيرة: 1-2 أسبوعين. تسجيل البلدية: 2-6 أسابيع للزيارة المنزلية.'
+        },
+        badge: { type: 'time', en: 'Start the process early — do not wait until permits expire', ti: 'ቅድሚ ፍቓዳት ምውዳእ ሕጂ ጀምር', ar: 'ابدأ العملية مبكرًا — لا تنتظر حتى انتهاء صلاحية التصاريح' }
+      }
+    ],
+    resources: {
+      en: [
+        { label: 'DVZ / Immigration Office (Official)', url: 'https://www.dvz.be' },
+        { label: 'CGRA — Asylum & Protection Info', url: 'https://www.cgvs.be' },
+        { label: 'Myria — Migration Info Centre', url: 'https://www.myria.be' }
+      ]
+    }
+  },
+
+  nationality: {
+    tag: { en: 'Belgian Nationality', ti: 'ቤልጂዩማዊ ዜግነት', ar: 'الجنسية البلجيكية' },
+    title: { en: 'Applying for Belgian Nationality', ti: 'ናይ ቤልጂዩም ዜግነት ምልክታ', ar: 'التقدم للحصول على الجنسية البلجيكية' },
+    intro: {
+      en: 'After living legally in Belgium for a certain number of years and meeting language, integration and work requirements, you can apply for Belgian citizenship. This guide covers the standard "declaration" route — the most common path for long-term residents.',
+      ti: 'ዓመታት ብሕጊ ኣብ ቤልጂዩም ምቕማጥ ድሕሪ ቋንቋ፡ ውህደትን ስራሕን ሕቶታት ምምላእ፡ ናይ ቤልጂዩም ዜጋ ክትኸውን ምልክታ ከተቕርብ ትኽእል።',
+      ar: 'بعد الإقامة القانونية في بلجيكا لعدد معين من السنوات واستيفاء متطلبات اللغة والاندماج والعمل، يمكنك التقدم للحصول على الجنسية البلجيكية.'
+    },
+    steps: [
+      {
+        title: { en: 'Meet the basic eligibility requirements', ti: 'ናይ ዝተወሰነ ምቁር ሕቶታት ምምላእ', ar: 'استيفاء متطلبات الأهلية الأساسية' },
+        body: {
+          en: 'Standard route requires: 5 years of uninterrupted legal residence in Belgium, language knowledge (Dutch, French or German — A2 level minimum), proof of social integration, and proof of economic participation (work or equivalent).',
+          ti: '5 ዓመት ዘይተቋርጸ ሕጋዊ ምቕማጥ፡ ቋንቋ ፍልጠት (ሆላንድኛ፡ ፈረንሳይኛ ወይ ጀርመንኛ — A2 ደረጃ)፡ ምስክር ናይ ማሕበራዊ ውህደትን ናይ ኤኮኖሚ ምስታፍን።',
+          ar: '5 سنوات من الإقامة القانونية المتواصلة، ومعرفة اللغة (الهولندية أو الفرنسية أو الألمانية — مستوى A2 كحد أدنى)، وإثبات الاندماج الاجتماعي والمشاركة الاقتصادية.'
+        },
+        badge: { type: 'tip', en: 'Refugee status holders may qualify after 5 years even without language certificate if there are reasons', ti: 'ናይ ስደተኛ ደረጃ ዘለዎም 5 ዓመት ድሕሪ ምስ ምኽንያት ቋንቋ ምስክር ወረቐት ዘይብሎም ይኽእሉ', ar: 'قد يتأهل حاملو وضع اللاجئ بعد 5 سنوات حتى بدون شهادة لغة إذا كانت هناك أسباب مقبولة' }
+      },
+      {
+        title: { en: 'Gather your documents', ti: 'ሰነዳትካ ኣዋህልል', ar: 'اجمع وثائقك' },
+        body: { en: 'Required documents:', ti: 'ዘድሊ ሰነዳት:', ar: 'الوثائق المطلوبة:' },
+        list: {
+          en: ['Certificate of residence history (from commune — request this first, it takes time)', 'Proof of language: certificate from recognized language school or employer letter', 'Proof of integration: any diplomas, volunteer work, community activities', 'Proof of work: payslips, tax declarations, ONEM statements, or employer letter', 'Clean criminal record (extract from commune or via MyMinfin)', 'Birth certificate (officially translated and apostilled if foreign)'],
+          ti: ['ናይ ምቕማጥ ታሪኽ ምስክር (ካብ ኮምዩን — ቅድሚ ሕጂ ሕተቶ)', 'ናይ ቋንቋ ምስክር', 'ናይ ውህደት ምስክር', 'ናይ ስራሕ ምስክር', 'ናጻ ናይ ጌጋ ምስክር', 'ናይ ልደት ምስክር'],
+          ar: ['شهادة تاريخ الإقامة (من البلدية)', 'إثبات اللغة: شهادة من مدرسة لغات معتمدة', 'إثبات الاندماج: شهادات، عمل تطوعي', 'إثبات العمل: كشوف رواتب، إقرارات ضريبية', 'سجل جنائي نظيف', 'شهادة الميلاد (مترجمة رسميًا)']
+        }
+      },
+      {
+        title: { en: 'Submit declaration at your commune', ti: 'ምስ ኮምዩን ናይ ምምሕዳር ምርግጋጽ', ar: 'تقديم الإعلان في البلدية' },
+        body: {
+          en: 'Go to your commune with all documents. They check your file and create an official "Declaration of Nationality" form. You sign it. They submit it to the Public Prosecutor\'s office and DVZ for verification. You receive an acknowledgement slip — keep this!',
+          ti: 'ምስ ኩሎም ሰነዳት ናብ ኮምዩን ኪድ። ሓፈሻዊ "ናይ ዜግነት ምስክር" ይፈጥሩ። ናብ ቤት-ፍርዲ ትምልካተሊ DVZ ይልእኩ። ናይ ምቕባል ወረቐት ይቕበሉ — ሓዞ!',
+          ar: 'اذهب إلى البلدية بجميع الوثائق. يتحققون من ملفك وينشئون نموذج "إعلان الجنسية" الرسمي. تقوم بتوقيعه. يرسلونه إلى مكتب المدعي العام و DVZ للتحقق. تحصل على إيصال استلام — احتفظ به!'
+        },
+        badge: { type: 'time', en: 'The prosecutor and DVZ each have 4 months to raise objections', ti: 'ቤት-ፍርዲ DVZ ነፍሲ-ወከፎ 4 ወርሒ ናይ ምቅዋም ጊዜ ኣለዎ', ar: 'يملك المدعي العام و DVZ كل منهما 4 أشهر لرفع اعتراضات' }
+      },
+      {
+        title: { en: 'Investigation period', ti: 'ናይ መርምራ ዘመን', ar: 'فترة التحقيق' },
+        body: {
+          en: 'During this period, the prosecutor checks for a criminal record and DVZ checks your residence history. If they find no problems, your application moves forward automatically. If they object, you receive a letter with reasons and can respond.',
+          ti: 'ኣብዚ ዘመን ቤት-ፍርዲ ናይ ጌጋ ታሪኽ ይሰርሕ DVZ ናይ ምቕማጥ ታሪኽ ይርኢ። ጸገም ምስ ዘይርከብ ምልክታ ብቐጥታ ይቅጽል።',
+          ar: 'خلال هذه الفترة، يتحقق المدعي العام من السجل الجنائي ويتحقق DVZ من تاريخ إقامتك. إذا لم يجدوا مشاكل، يتقدم طلبك تلقائيًا.'
+        }
+      },
+      {
+        title: { en: 'Approval and registration', ti: 'ምጽዳቕን ምምዝጋብን', ar: 'الموافقة والتسجيل' },
+        body: {
+          en: 'If no objections are raised within the deadline, the commune registers your new nationality. You receive a letter confirming you are now Belgian. Apply for your Belgian passport at the commune immediately after — this can now open doors to other EU countries permanently.',
+          ti: 'ምቅዋም ምስ ዘይህሉ ኮምዩን ዜግነት ይምዝግብ። ደብዳቤ ቤልጂዩማዊ ምዃንካ ይቕበሉ። ድሕሪኡ ቤልጂዩም ፓስፖርት ምልክታ ምቕራብ ይከኣል።',
+          ar: 'إذا لم تُثر أي اعتراضات في الموعد النهائي، تقوم البلدية بتسجيل جنسيتك الجديدة. تحصل على رسالة تؤكد أنك أصبحت بلجيكيًا. قدم طلبًا للحصول على جواز سفرك البلجيكي في البلدية فورًا.'
+        },
+        badge: { type: 'tip', en: 'Belgium allows dual nationality — you do not have to give up Eritrean citizenship', ti: 'ቤልጂዩም ናይ ክልተ ዜግነት ይፈቅድ — ናይ ኤርትራ ዜግነት ምሃብ ኣይሓተትን', ar: 'تسمح بلجيكا بازدواجية الجنسية — لا يتعين عليك التخلي عن الجنسية الإريترية' }
+      },
+      {
+        title: { en: 'If rejected — how to appeal', ti: 'ምስ ዝነፍጉ — ከመይ ምምልካት', ar: 'في حالة الرفض — كيفية الاستئناف' },
+        body: {
+          en: 'If the application is rejected, you receive a formal rejection letter with reasons. You can appeal within 15 days to the Family Court (Tribunal de la Famille). Get legal help immediately — contact your local Bar Association or a refugee legal aid organization.',
+          ti: 'ምልክታ ምስ ዝነፍጎ ወግዓዊ ናይ ምንካይ ደብዳቤ ምስ ምኽንያት ይቕበሉ። ኣብ 15 መዓልቲ ናብ ቤተ-ሰብ ቤት-ፍርዲ ምምልካት ይከኣል። ሕጋዊ ሓገዝ ሕዝ።',
+          ar: 'إذا رُفض الطلب، تحصل على خطاب رفض رسمي مع الأسباب. يمكنك الاستئناف خلال 15 يومًا أمام محكمة الأسرة. احصل على مساعدة قانونية فورًا.'
+        },
+        badge: { type: 'warn', en: '15 days to appeal — do not miss this deadline', ti: '15 መዓልቲ ናይ ምምልካት ጊዜ — ኣይትስሕቶ', ar: '15 يومًا للاستئناف — لا تفوت هذا الموعد' }
+      },
+      {
+        title: { en: 'Total timeline', ti: 'ጠቕላሊ ናይ ጊዜ መደብ', ar: 'الجدول الزمني الإجمالي' },
+        body: {
+          en: 'From submitting the declaration to receiving confirmation: typically 4–12 months. Gathering documents before applying can take 1–3 months. Budget a full year for the whole process.',
+          ti: 'ካብ ምቕራብ ምስክር ክሳብ ምቕባል ምርግጋጽ: ብዓቢኡ 4–12 ወርሒ። ሰነዳት ቅድሚ ምቕራብ 1–3 ወርሒ ክወስድ ይኽእል።',
+          ar: 'من تقديم الإعلان إلى تلقي التأكيد: عادةً 4-12 شهرًا. يمكن أن يستغرق جمع الوثائق قبل التقديم 1-3 أشهر.'
+        },
+        badge: { type: 'time', en: 'Start collecting documents 6 months before you plan to apply', ti: 'ሰነዳት 6 ወርሒ ቅድሚ ምቕራብ ጀምር ምእካብ', ar: 'ابدأ بجمع الوثائق قبل 6 أشهر من موعد تقديم طلبك' }
+      }
+    ],
+    resources: {
+      en: [
+        { label: 'Official Belgian Nationality Info (SPF Justice)', url: 'https://justice.belgium.be' },
+        { label: 'DVZ — Residence & Nationality', url: 'https://www.dvz.be' },
+        { label: 'Myria — Rights & Info Centre', url: 'https://www.myria.be' }
+      ]
+    }
+  },
+
+  unemployment: {
+    tag: { en: 'Unemployment', ti: 'ስራሕ-ኣልቦነት', ar: 'البطالة' },
+    title: { en: 'Unemployment Benefits (ONEM/RVA)', ti: 'ናይ ስራሕ-ኣልቦነት ጥቕሚ (ONEM/RVA)', ar: 'مزايا البطالة (ONEM/RVA)' },
+    intro: {
+      en: 'If you lose your job in Belgium and have worked enough days, you are entitled to unemployment benefits. You must act quickly — delays cost you money. This guide walks you through what to do from the first day you lose your job.',
+      ti: 'ስራሕካ ምስ ዘጥፍእ ኣብ ቤልጂዩም ዕቅብ ዝኣክል መዓልቲ ሰሪሕካ ኔርካ እንተኾንካ ናይ ስራሕ-ኣልቦነት ጥቕሚ ናይ ምርካብ መሰል ኣለካ። ቀልጢፍካ ምስራሕ ኣለካ — ጉሒቱ ገንዘብ ትስእን።',
+      ar: 'إذا فقدت وظيفتك في بلجيكا وعملت عددًا كافيًا من الأيام، فأنت مؤهل للحصول على مزايا البطالة. يجب أن تتصرف بسرعة — التأخير يكلفك المال.'
+    },
+    steps: [
+      {
+        title: { en: 'Get your C4 form from your employer', ti: 'C4 ቅጺ ካብ ወሃብ-ስራሕካ ሓዝ', ar: 'احصل على نموذج C4 من صاحب العمل' },
+        body: {
+          en: 'On your last day of work, your employer must give you a C4 document. This is the official proof that your contract ended. It states why you left (dismissal, end of contract, resignation). Check that the reason is correct — if it says "resigned" when you were fired, contact a union (ACV, FGTB, CGSLB) immediately.',
+          ti: 'ናይ መወዳእታ ናይ ስራሕ መዓልቲ ወሃብ-ስራሕካ C4 ሰነድ ክህበካ ኣለዎ። ምኽንያት ትክክለኛ ምኳኑ ኣረጋግጽ — "ስልጣን ሃበ" ምስ ዝብል ዝሳሰርካ እንተኾንካ ሕብረ-ስራሕ ሕዝ።',
+          ar: 'في يوم عملك الأخير، يجب على صاحب العمل إعطاؤك وثيقة C4. هذا هو الإثبات الرسمي لانتهاء عقدك. تحقق من صحة السبب المذكور.'
+        },
+        badge: { type: 'warn', en: 'No C4 = cannot register. Chase your employer for it in writing.', ti: 'C4 ዘይሃልዩ = ምምዝጋብ ኣይከኣልን', ar: 'بدون C4 = لا يمكن التسجيل. اطلبه من صاحب العمل كتابيًا.' }
+      },
+      {
+        title: { en: 'Join or contact a union (Syndicat) or CAPAC', ti: 'ሕብረ-ስራሕ ወይ CAPAC ርኸብ', ar: 'انضم إلى نقابة أو اتصل بـ CAPAC' },
+        body: {
+          en: 'In Belgium, unemployment benefits are paid through either a union (ACV/CSC, FGTB, CGSLB) or CAPAC (for non-union members). If you were already in a union — contact them immediately. If not, go to CAPAC. Both are free to use for unemployment purposes.',
+          ti: 'ኣብ ቤልጂዩም ናይ ስራሕ-ኣልቦነት ጥቕሚ ብሕብረ-ስራሕ ወይ CAPAC ይከፈል። ሕብረ-ስራሕ ኣባል እንተኾንካ ቀልጢፍካ ርኸቦም። ዘይኮንካ ናብ CAPAC ኪድ።',
+          ar: 'في بلجيكا، تُدفع مزايا البطالة من خلال نقابة أو CAPAC (لغير الأعضاء في النقابات). إذا كنت منتسبًا بالفعل إلى نقابة — اتصل بها فورًا. إذا لم تكن كذلك، اذهب إلى CAPAC.'
+        },
+        badge: { type: 'tip', en: 'ACV/CSC = Christian union. FGTB = socialist union. CGSLB = liberal. All do the same job here.', ti: 'ሰለስቲኦም ሕብረ-ስራሕ ናይ ONEM ምትሕብባር ይህቡ', ar: 'الثلاثة نقابات تؤدي نفس الوظيفة هنا' }
+      },
+      {
+        title: { en: 'Submit your dossier', ti: 'ናይ ሰነዳት ዕዮ ምቕራብ', ar: 'تقديم ملفك' },
+        body: { en: 'Submit to your union or CAPAC:', ti: 'ናብ ሕብረ-ስራሕ ወይ CAPAC ምቕራብ:', ar: 'قدم إلى نقابتك أو CAPAC:' },
+        list: {
+          en: ['C4 form', 'Your identity card (eID)', 'Bank account number (for payments)', 'Any previous C4s if you have recent other contracts', 'Certificate of residence'],
+          ti: ['C4 ቅጺ', 'ናይ መንነት ካርድ (eID)', 'ናይ ባንክ ሕሳብ ቁጽሪ', 'ናይ ምቕማጥ ምስክር'],
+          ar: ['نموذج C4', 'بطاقة هويتك (eID)', 'رقم الحساب البنكي (للمدفوعات)', 'شهادة الإقامة']
+        }
+      },
+      {
+        title: { en: 'Register with ONEM (Forem/VDAB/Actiris)', ti: 'ምስ ONEM ምምዝጋብ', ar: 'التسجيل في ONEM' },
+        body: {
+          en: 'You must also register as a job-seeker with your regional employment agency: VDAB (Flanders), Forem (Wallonia), or Actiris (Brussels). Do this within 8 days of losing your job. This is separate from the union/CAPAC step — both must be done.',
+          ti: 'ምስ ናይ ዞባ ናይ ስራሕ ትካል ምምዝጋብ ኣለካ: VDAB (ፍላምካ)፡ Forem (ዋሎኒያ) ወይ Actiris (ብሩሰልስ)። ስራሕካ ምስ ዘጥፍእ ኣብ 8 መዓልቲ ምዝገባ። እዚ ካብ ሕብረ-ስራሕ/CAPAC ፍልይ ዝበለ እዩ — ክልቲኦም ኣለካ።',
+          ar: 'يجب أيضًا التسجيل كباحث عن عمل لدى وكالة التوظيف الإقليمية: VDAB (فلاندرز) أو Forem (والونيا) أو Actiris (بروكسل). افعل ذلك خلال 8 أيام من فقدان وظيفتك.'
+        },
+        badge: { type: 'warn', en: 'If you miss the 8-day deadline, benefits may be delayed by weeks', ti: '8 መዓልቲ ምስ ዘሕልፍ ጥቕሚ ሰሙናት ክናዋሕ ይኽእል', ar: 'إذا فاتك الموعد النهائي لـ 8 أيام، قد تتأخر المزايا لأسابيع' }
+      },
+      {
+        title: { en: 'Receiving payments and obligations', ti: 'ምቕባል ክፍሊትን ሕቶታትን', ar: 'استلام المدفوعات والالتزامات' },
+        body: {
+          en: 'Payments typically start 4–6 weeks after your file is accepted. You will receive a monthly payment directly to your bank account. You must: actively look for work, attend all VDAB/Forem/Actiris appointments, and report any work (even part-time) immediately. Hiding income = serious fraud.',
+          ti: 'ክፍሊታት ድሕሪ 4–6 ሰሙን ዝቕበሉ ሕቶ ምስ ዝቕበሉ ምቕባል ይጀምሩ። ወርሓዊ ክፍሊት ናብ ባንክ ሕሳብካ ይምጻእ። ስራሕ ብቕልጡፍ ምፍላጥ ኣለካ።',
+          ar: 'تبدأ المدفوعات عادةً بعد 4-6 أسابيع من قبول ملفك. تحصل على دفعة شهرية مباشرة في حسابك البنكي. يجب عليك: البحث النشط عن عمل، وحضور جميع المواعيد، والإبلاغ عن أي عمل فوري.'
+        },
+        badge: { type: 'warn', en: 'ONEM does periodic checks. Keep proof of every job application you send.', ti: 'ONEM ካልኣይ ጊዜ ምርምር ይሰርሕ። ምስክር ናይ ናይ ስራሕ ምልክታ ሓዝ።', ar: 'يجري ONEM فحوصات دورية. احتفظ بإثبات كل طلب عمل ترسله.' }
+      },
+      {
+        title: { en: 'How much will you receive?', ti: 'ክንደይ ክትቕበል?', ar: 'كم ستتلقى؟' },
+        body: {
+          en: 'Benefits are calculated as a percentage of your last salary. In the first 3 months (Stage 1): 65% of previous salary (capped at ~€2,700/month gross). From month 4–12 (Stage 2): 60%. After 12 months (Stage 3): flat rate, typically €1,000–1,200/month. A union advisor can calculate your exact amount.',
+          ti: 'ጥቕሚ ናይ ዝሓለፈ ደሞዝካ ሚኢቲ-ዕቅቢ ዝሕሰብ: ቀዳሞት 3 ወርሒ: 65%። ወርሒ 4–12: 60%። ድሕሪ 12 ወርሒ: ቀዋሚ ዋጋ ~€1,000–1,200።',
+          ar: 'تُحسب المزايا كنسبة مئوية من راتبك الأخير. في أول 3 أشهر: 65% من الراتب السابق. من الشهر 4-12: 60%. بعد 12 شهرًا: سعر ثابت ~€1,000-1,200/شهر.'
+        }
+      }
+    ],
+    resources: {
+      en: [
+        { label: 'ONEM — Official Unemployment Office', url: 'https://www.onem.be' },
+        { label: 'CAPAC — For non-union members', url: 'https://www.capac.be' },
+        { label: 'Actiris (Brussels job seekers)', url: 'https://www.actiris.brussels' },
+        { label: 'VDAB (Flanders job seekers)', url: 'https://www.vdab.be' }
+      ]
+    }
+  },
+
+  cpas: {
+    tag: { en: 'CPAS / Social Aid', ti: 'CPAS ማሕበራዊ ሓገዝ', ar: 'CPAS / المساعدة الاجتماعية' },
+    title: { en: 'CPAS Social Aid — What You Can Get', ti: 'CPAS ማሕበራዊ ሓገዝ — ዝርካብ', ar: 'المساعدة الاجتماعية CPAS — ما يمكنك الحصول عليه' },
+    intro: {
+      en: 'CPAS (Centre Public d\'Action Sociale) is the local social welfare office in every Belgian commune. If you have no income or not enough to live on, CPAS can help with money, housing, medical care, and integration. This is a right — not charity. Do not be ashamed to use it.',
+      ti: 'CPAS ኣብ ነፍሲ-ወከፍ ቤልጂዩም ኮምዩን ዘሎ ናይ ማሕበራዊ ሓገዝ ቤት-ጽሕፈት እዩ። እቶት ምስ ዘይህሉ ወይ ዝኣክል ናብ ምህላው ዝቐረበ፡ CPAS ብገንዘብ፡ ቤት፡ ሕክምና ከሕግዘካ ይኽእል። እዚ መሰልካ እዩ — ሓልዮ ኣይኮነን።',
+      ar: 'CPAS هو مكتب الرعاية الاجتماعية المحلي في كل بلدية بلجيكية. إذا لم يكن لديك دخل أو لم يكن كافيًا للعيش، يمكن لـ CPAS مساعدتك بالمال والسكن والرعاية الطبية. هذا حق — وليس صدقة.'
+    },
+    steps: [
+      {
+        title: { en: 'Who can apply for CPAS?', ti: 'መን ናብ CPAS ምልክታ ከቕርብ ይኽእል?', ar: 'من يمكنه التقدم إلى CPAS؟' },
+        body: {
+          en: 'You can apply if: you are legally registered in Belgium (commune registration required), you have insufficient income to meet basic needs, and you have tried other options (unemployment, family support). Recognized refugees and people with valid residence permits qualify.',
+          ti: 'ምምልካት ይከኣል: ኣብ ቤልጂዩም ብሕጊ ምምዝጋብ (ናይ ኮምዩን ምምዝጋብ ዘድሊ)፡ ኣካላዊ ሕቶታት ንምምላእ ዝኣክል እቶት ምስ ዘይህሉ። ዕቑባ ዝተዋህቦምን ሕጋዊ ናይ መቐመጢ ፍቓድ ዘለዎምን ምቁር ኣለዎም።',
+          ar: 'يمكنك التقدم إذا كنت: مسجلًا قانونيًا في بلجيكا، ولديك دخل غير كافٍ لتلبية الاحتياجات الأساسية، وجربت خيارات أخرى. اللاجئون المعترف بهم وأصحاب تصاريح الإقامة الصالحة مؤهلون.'
+        }
+      },
+      {
+        title: { en: 'What can CPAS give you?', ti: 'CPAS እንታይ ክህበካ ይኽእል?', ar: 'ماذا يمكن أن يمنحك CPAS؟' },
+        body: { en: 'CPAS can help with:', ti: 'CPAS ብዝኾነ ምሕጋዝ ይኽእል:', ar: 'يمكن لـ CPAS المساعدة في:' },
+        list: {
+          en: ['Monthly living allowance (RIS/Leefloon): ~€1,100–1,350/month for a single person in 2024', 'Emergency medical aid (AMU) — even before full status is determined', 'Help paying rent deposits', 'Assistance finding social housing', 'Budget counselling and debt help', 'Integration coaching and job guidance'],
+          ti: ['ወርሓዊ ናብራ ክፍሊት (RIS): ~€1,100–1,350 ወርሒ ናይ ሓደ ሰብ', 'ህጹጽ ሕክምናዊ ሓገዝ (AMU)', 'ናይ ክራይ ሳኮ ክፍሊት ሓገዝ', 'ማሕበራዊ ቤት ምርካብ', 'ናይ በጀት ምኽርን ዕዳ ሓገዝን'],
+          ar: ['بدل معيشة شهري (RIS): ~€1,100-1,350/شهر لشخص منفرد', 'مساعدة طبية طارئة (AMU)', 'مساعدة دفع ودائع الإيجار', 'المساعدة في إيجاد إسكان اجتماعي', 'الإرشاد في الميزانية ومساعدة الديون']
+        }
+      },
+      {
+        title: { en: 'How to apply — step by step', ti: 'ከመይ ምምልካት — ስጉምቲ ብስጉምቲ', ar: 'كيفية التقديم — خطوة بخطوة' },
+        body: {
+          en: 'Go to the CPAS office in your commune (search "[your commune name] CPAS" online). Bring: your eID card, proof of income (or lack of), any bills/debts, your rental contract, and bank statements. A social worker will be assigned to your case and will contact you for an appointment.',
+          ti: 'ናብ CPAS ናይ ኮምዩንካ ኪድ። ምጻእ: eID ካርድ፡ ናይ እቶት ምስክር (ወይ ናይ ዘይምህላው)፡ ዝኾነ ክፍሊታት/ዕዳ፡ ናይ ክራይ ኮንትራት፡ ናይ ባንክ ወረቐት። ናይ ማሕበራዊ ሓገዝ ሰራሕተኛ ንኩነታትካ ይቕጽሎ።',
+          ar: 'اذهب إلى مكتب CPAS في بلديتك. أحضر: بطاقة eID، وإثبات الدخل، وأي فواتير/ديون، وعقد الإيجار، وكشوف حسابات بنكية. سيُعيَّن عليك أخصائي اجتماعي.'
+        },
+        badge: { type: 'tip', en: 'You can request an urgent appointment if you have zero income and urgent needs', ti: 'እቶት ዘይብልካ ኮይና ህጹጽ ሕቶ ምሕታት ይከኣል', ar: 'يمكنك طلب موعد عاجل إذا لم يكن لديك دخل واحتياجات ملحة' }
+      },
+      {
+        title: { en: 'The home investigation', ti: 'ናይ ቤት መርምራ', ar: 'التحقيق المنزلي' },
+        body: {
+          en: 'A CPAS social worker will visit your home to assess your actual living situation. This is standard — do not be nervous. They check if your income matches what you reported and whether your needs are genuine. Be honest and show all relevant documents.',
+          ti: 'ናይ CPAS ሰራሕተኛ ኣብ ቤትካ ናብ ምርምራ ይምጽእ። ናይ ቤት ኩነታትካ ይርኢ። ቅን ኩን ኩሎም ዘድሊ ሰነዳት ኣርኤ።',
+          ar: 'سيزور أخصائي اجتماعي من CPAS منزلك لتقييم وضع معيشتك الفعلي. هذا معيار — لا تكن متوترًا. كن صادقًا وأبرز جميع الوثائق ذات الصلة.'
+        }
+      },
+      {
+        title: { en: 'Decision and payment', ti: 'ውሳነን ክፍሊትን', ar: 'القرار والدفع' },
+        body: {
+          en: 'CPAS must make a decision within 30 days (emergency: within 48 hours). If approved, payments are made monthly. If refused, you have the right to appeal to the Labour Court (Tribunal du Travail) within 3 months.',
+          ti: 'CPAS ኣብ 30 መዓልቲ ውሳነ ክህብ ኣለዎ (ህጹጽ: ኣብ 48 ሰዓት)። ምስ ዝጸደቕ ወርሓዊ ክፍሊት ይጅምር። ምስ ዝነፍጎ ኣብ 3 ወርሒ ናብ ቤት-ፍርዲ ምምልካት ይከኣል።',
+          ar: 'يجب على CPAS اتخاذ قرار خلال 30 يومًا (طارئ: خلال 48 ساعة). إذا تمت الموافقة، تُدفع المدفوعات شهريًا. إذا رُفض، يحق لك الاستئناف أمام محكمة العمل خلال 3 أشهر.'
+        },
+        badge: { type: 'time', en: 'Emergency medical aid (AMU) can be approved within 48 hours — do not delay if sick', ti: 'ህጹጽ ሕክምናዊ ሓገዝ ኣብ 48 ሰዓት ምጽዳቕ ይኽእል', ar: 'يمكن الموافقة على المساعدة الطبية الطارئة خلال 48 ساعة' }
+      }
+    ],
+    resources: {
+      en: [
+        { label: 'Find your local CPAS (search by commune)', url: 'https://www.mi-is.be' },
+        { label: 'SPP IS — Social Integration Belgium', url: 'https://www.mi-is.be' }
+      ]
+    }
+  },
+
+  commune: {
+    tag: { en: 'Commune & eID', ti: 'ኮምዩን & eID', ar: 'البلدية وبطاقة الهوية' },
+    title: { en: 'Registering at the Commune & Getting Your eID', ti: 'ኣብ ኮምዩን ምምዝጋብን eID ምርካብን', ar: 'التسجيل في البلدية والحصول على بطاقة الهوية الإلكترونية' },
+    intro: {
+      en: 'The commune (gemeente/maison communale) is your local municipal office. It is the starting point for almost everything in Belgium — your address registration, identity card, and access to most services. Here is exactly what to do when you first arrive.',
+      ti: 'ኮምዩን ናይ ናብራኻ ቀዳማይ ቦታ እዩ ኣብ ቤልጂዩም — ናይ ኣድርሻ ምምዝጋብ፡ ናይ መንነት ካርድ፡ ናይ ብዙሕ ኣገልግሎታት ምኽፋት። ቅድሚ ምምጻእካ ወይ ምስ ምምጻእካ እዚ ስሞ።',
+      ar: 'البلدية هي نقطة البداية لكل شيء تقريبًا في بلجيكا — تسجيل عنوانك، وبطاقة هويتك، والوصول إلى معظم الخدمات.'
+    },
+    steps: [
+      {
+        title: { en: 'Book an appointment', ti: 'ቆጸራ ሕዝ', ar: 'احجز موعدًا' },
+        body: {
+          en: 'Most communes require an appointment. Go to your commune\'s website or call them. Search "[your commune name] rendez-vous" or "[your commune name] afspraak". Some communes have a walk-in window for urgent matters — ask when you arrive.',
+          ti: 'ብዙሕ ኮምዩናት ቆጸራ ይሓቱ። ናብ ወብሳይቶም ኪድ ወይ ደውሎም። "[ናይ ኮምዩን ስም] rendez-vous" ፈልጦ።',
+          ar: 'تطلب معظم البلديات موعدًا. انتقل إلى موقع البلدية أو اتصل بهم. ابحث عن "[اسم البلدية] rendez-vous".'
+        },
+        badge: { type: 'tip', en: 'Brussels communes often have long waits — book as early as possible', ti: 'ናይ ብሩሰልስ ኮምዩናት ብዙሕ ናይ ምጽባይ ጊዜ ኣለዎ — ቅልጡፍ ሕዝ', ar: 'بلديات بروكسل غالبًا لديها فترات انتظار طويلة — احجز في أقرب وقت ممكن' }
+      },
+      {
+        title: { en: 'Bring the right documents', ti: 'ትኽክለኛ ሰነዳት ምጻእ', ar: 'أحضر الوثائق الصحيحة' },
+        body: { en: 'Bring:', ti: 'ምጻእ:', ar: 'أحضر:' },
+        list: {
+          en: ['Valid passport', 'Your DVZ/CGRA decision letter (asylum status or residence permit)', 'Rental contract or letter from your host confirming your address', 'Recent passport photo (2)', 'Cash or card for the eID card fee (~€15–25 depending on commune)'],
+          ti: ['ቅዱስ ፓስፖርት', 'ናይ DVZ/CGRA ወሳኒ ደብዳቤ', 'ናይ ክራይ ኮንትራት ወይ ናይ ዓቚርካ ደብዳቤ', '2 ናይ ፓስፖርት ፎቶ', 'ናይ eID ክፍሊት (~€15–25)'],
+          ar: ['جواز سفر ساري المفعول', 'خطاب قرار DVZ/CGRA', 'عقد الإيجار أو رسالة من مضيفك', 'صورة شخصية حديثة (2)', 'نقد أو بطاقة لرسوم بطاقة eID (~€15-25)']
+        }
+      },
+      {
+        title: { en: 'The home visit (contrôle de résidence)', ti: 'ናይ ቤት ምብጻሕ', ar: 'الزيارة المنزلية (contrôle de résidence)' },
+        body: {
+          en: 'After registration, the commune sends a local police officer to your address to verify you actually live there. You must be present. If you miss this visit, your registration is cancelled. The visit is usually unannounced — within 2–4 weeks of registration.',
+          ti: 'ምምዝጋብ ድሕሪ ኮምዩን ናብ ኣድርሻኻ ናይ ፖሊስ ሰራሕተኛ ይሰዱ ቤትካ ንምርግጋጽ። ኣብ ቦታ ምህላው ኣለካ። ምስ ዘዕጹ ምምዝጋብ ይፍረስ።',
+          ar: 'بعد التسجيل، ترسل البلدية ضابط شرطة محلي إلى عنوانك للتحقق من إقامتك الفعلية. يجب أن تكون حاضرًا. إذا فاتتك هذه الزيارة، سيُلغى تسجيلك.'
+        },
+        badge: { type: 'warn', en: 'Tell a neighbor to let you know if someone knocks — you may be at work when they visit', ti: 'ጎረቤትካ ንጕዕዞ ምፍላጥ ምሕታቱ ጽቡቕ — ስራሕ ክትህሉ ትኽእል', ar: 'أخبر جارًا ليعلمك إذا طرق أحد — قد تكون في العمل عند زيارتهم' }
+      },
+      {
+        title: { en: 'Receive your Annex and eID card', ti: 'Annex ን eID ካርድ ምቕባል', ar: 'استلام المرفق وبطاقة الهوية الإلكترونية' },
+        body: {
+          en: 'After the home visit is confirmed, you receive an "Annex 8" or "Annex 15" (a temporary paper permit). Your eID card is ordered and ready in 3–6 weeks. You must collect it in person at the commune. The card contains a chip — activate it with your PIN code.',
+          ti: 'ናይ ቤት ምብጻሕ ምስ ዝረጋገጽ Annex 8 ወይ Annex 15 ትቕበሉ። eID ካርድ ኣብ 3–6 ሰሙን ቅሩብ ይኸውን። ኣካላዊ ምቕባል ኣብ ኮምዩን። ምስ PIN ኮድ ኣስሰናዓ።',
+          ar: 'بعد تأكيد الزيارة المنزلية، تحصل على "Annex 8" أو "Annex 15" (تصريح ورقي مؤقت). يتم طلب بطاقة eID وتكون جاهزة في 3-6 أسابيع.'
+        }
+      },
+      {
+        title: { en: 'Your eID opens everything', ti: 'eID ኩሉ ነገር ይኸፍት', ar: 'بطاقة eID تفتح كل شيء' },
+        body: {
+          en: 'Your eID card (electronic identity card) is your proof of legal residence and identity in Belgium. With it you can: open a bank account, register at CPAS, apply for health insurance, register children at school, access government websites online, and apply for benefits.',
+          ti: 'eID ካርድ ናይ ሕጋዊ ምቕማጥን መንነትን ምስክር ኣብ ቤልጂዩም። ምስ ምህላው ትኽእል: ናይ ባንክ ሕሳብ ምኽፋት፡ ኣብ CPAS ምምዝጋብ፡ ናይ ጥዕና ዋሕስ ምምልካት፡ ደቅኻ ቤት-ትምህርቲ ምምዝጋብ።',
+          ar: 'بطاقة eID هي إثبات إقامتك القانونية وهويتك في بلجيكا. بها يمكنك: فتح حساب بنكي، والتسجيل في CPAS، والتقدم للتأمين الصحي، وتسجيل الأطفال في المدرسة.'
+        },
+        badge: { type: 'tip', en: 'Lost your eID? Report it immediately at the commune — costs ~€25 to replace', ti: 'eID ጠፊኡ? ቀልጢፍካ ናብ ኮምዩን ሓብር — ምትካእ ~€25', ar: 'فقدت eID؟ أبلغ فورًا في البلدية — التكلفة ~€25 للاستبدال' }
+      }
+    ],
+    resources: {
+      en: [
+        { label: 'Brussels communes directory', url: 'https://www.brussels.be' },
+        { label: 'DVZ — Residence documents explained', url: 'https://www.dvz.be' }
+      ]
+    }
+  },
+
+  health: {
+    tag: { en: 'Health Insurance', ti: 'ጥዕና ዋሕስ', ar: 'التأمين الصحي' },
+    title: { en: 'Health Insurance & Mutuality in Belgium', ti: 'ናይ ጥዕና ዋሕስ ኣብ ቤልጂዩም', ar: 'التأمين الصحي في بلجيكا' },
+    intro: {
+      en: 'In Belgium, healthcare is affordable because of the "mutuality" (ziekenfonds) system — a health insurance fund you join. Once registered, you pay a small fee at the doctor and the rest is reimbursed. This guide explains how to enroll and what is covered.',
+      ti: 'ኣብ ቤልጂዩም ሕክምና ዋጋ ዝቐነሰ ብ"ሙቹዋሊቴ" ስርዓት ምኳኑ ኢዩ። ምምዝጋብ ምስ ዝጸደቕ ኣብ ሓኪም ውሑድ ትኸፍል ዝተረፈ ይምለስ።',
+      ar: 'في بلجيكا، الرعاية الصحية ميسورة التكلفة بفضل نظام "الصندوق الصحي" (mutualité). بمجرد التسجيل، تدفع رسومًا صغيرة لدى الطبيب ويُسدَّد الباقي.'
+    },
+    steps: [
+      {
+        title: { en: 'Choose a mutuality', ti: 'ሙቹዋሊቴ ምምራጽ', ar: 'اختر صندوقًا صحيًا' },
+        body: { en: 'The main mutualités in Belgium are:', ti: 'ዋናዎት ሙቹዋሊቴ:', ar: 'الصناديق الصحية الرئيسية في بلجيكا:' },
+        list: {
+          en: ['Mutualité Chrétienne / CM (Christian) — largest, widely available', 'Mutualité Socialiste / FSMB (socialist)', 'Mutualité Libérale (liberal)', 'Mutualité Libre / Partenamut (neutral)', 'CAAMI (for those who qualify, often for low-income)'],
+          ti: ['CM (ክርስቲያናዊ) — ዝዓበየ', 'FSMB (ሶሻሊስት)', 'Mutualité Libérale', 'Partenamut (ነጻ)'],
+          ar: ['CM — الأكبر والأكثر توفرًا', 'FSMB (اشتراكي)', 'Mutualité Libérale (ليبرالي)', 'Partenamut (محايد)', 'CAAMI (للمؤهلين، غالبًا لمنخفضي الدخل)']
+        }
+      },
+      {
+        title: { en: 'Enroll — what to bring', ti: 'ምምዝጋብ — እንታይ ምምጻእ', ar: 'التسجيل — ماذا تحضر' },
+        body: {
+          en: 'Go to any local office of your chosen mutuality (you can change once per year). Bring: your eID card, NISS/national number (on your eID), bank account number for reimbursements, and your DVZ or CGRA status document. Enroll within 3 months of arrival — retroactive coverage is limited.',
+          ti: 'ናብ ዝሓረኻዮ ሙቹዋሊቴ ቤት-ጽሕፈት ኪድ። ምጻእ: eID ካርድ፡ ናይ NISS ቁጽሪ፡ ናይ ባንክ ሕሳብ ቁጽሪ፡ ናይ DVZ/CGRA ሰነድ።',
+          ar: 'اذهب إلى أي مكتب محلي للصندوق الصحي الذي اخترته. أحضر: بطاقة eID، ورقم NISS، ورقم الحساب البنكي، ووثيقة وضعك من DVZ/CGRA.'
+        },
+        badge: { type: 'warn', en: 'Enroll within 3 months to avoid a waiting period before coverage starts', ti: 'ኣብ 3 ወርሒ ምምዝጋብ ናይ ጸበበ ናይ ምጽባይ ጊዜ ንምምሕዳር', ar: 'سجل خلال 3 أشهر لتجنب فترة الانتظار قبل بدء التغطية' }
+      },
+      {
+        title: { en: 'What is covered?', ti: 'እንታይ ይሽፈን?', ar: 'ما الذي يُغطى؟' },
+        body: { en: 'The mutuality covers:', ti: 'ሙቹዋሊቴ ዝሽፈን:', ar: 'يغطي الصندوق الصحي:' },
+        list: {
+          en: ['Doctor visits (you pay €2–6, rest reimbursed)', 'Hospital stays (important: get the "maximum billing" (maximumfactuur) protection applied)', 'Prescription medications (partially reimbursed)', 'Specialist visits with referral', 'Dental care (basic, limited)', 'Mental health consultations (limited but increasing)'],
+          ti: ['ምብጻሕ ሓኪም (€2–6 ትኸፍል, ዝተረፈ ይምለስ)', 'ናይ ሆስፒታል ምቕማጥ', 'ናይ ሃለዋት መድሃኒት', 'ምስ ናይ ሓኪም ምስክር ምብጻሕ ፍሉይ ሓኪም'],
+          ar: ['زيارات الطبيب (تدفع €2-6، والباقي يُسدَّد)', 'الإقامة في المستشفى', 'الأدوية الموصوفة (مسددة جزئيًا)', 'زيارات الأخصائيين مع إحالة', 'رعاية الأسنان (أساسية، محدودة)']
+        }
+      },
+      {
+        title: { en: 'Preferential reimbursement (BIM/OMNIO)', ti: 'ፍሉይ ምምላስ (BIM/OMNIO)', ar: 'السداد التفضيلي (BIM/OMNIO)' },
+        body: {
+          en: 'If your income is low, you can qualify for "preferential reimbursement" status — you pay even less at the doctor, sometimes nothing. Recognized refugees and CPAS beneficiaries often automatically qualify. Ask your mutuality if you have this status when you enroll.',
+          ti: 'እቶትካ ዝወሓደ እንተኾነ ናይ "ፍሉይ ምምላስ" ደረጃ ምርካብ ይከኣል — ኣብ ሓኪም ዝወሓደ ትኸፍል፡ ሓንሓሓ ዜሮ። ዕቑባ ዝተዋህቦምን CPAS ተጠቃምያትን ብናይ ወለዲ ምቁር ኣለዎም። ምስ ሙቹዋሊቴ ሕተት።',
+          ar: 'إذا كان دخلك منخفضًا، يمكنك التأهل للحصول على وضع "السداد التفضيلي" — تدفع أقل لدى الطبيب، وأحيانًا لا شيء. يتأهل اللاجئون المعترف بهم والمستفيدون من CPAS غالبًا تلقائيًا.'
+        },
+        badge: { type: 'tip', en: 'Ask specifically: "Do I qualify for BIM/OMNIO preferential rate?" — many people miss this', ti: 'ሕተት: "BIM/OMNIO ምቁር ዶ ኣለኒ?" — ብዙሕ ሰብ ዘጉድሎ ጥቕሚ', ar: 'اسأل تحديدًا: "هل أتأهل لمعدل BIM/OMNIO التفضيلي؟" — يفوت هذا كثيرين' }
+      }
+    ],
+    resources: {
+      en: [
+        { label: 'CM — Mutualité Chrétienne (find local office)', url: 'https://www.mc.be' },
+        { label: 'INAMI — National Health Insurance Info', url: 'https://www.inami.fgov.be' }
+      ]
+    }
+  },
+
+  work: {
+    tag: { en: 'Work Rights', ti: 'ናይ ስራሕ መሰል', ar: 'حقوق العمل' },
+    title: { en: 'Your Right to Work in Belgium', ti: 'ናይ ምስራሕ መሰልካ ኣብ ቤልጂዩም', ar: 'حقك في العمل في بلجيكا' },
+    intro: {
+      en: 'Whether or not you can work freely in Belgium depends on your residence status. This guide explains the rules clearly — because understanding your work rights is one of the most important things for your independence here.',
+      ti: 'ኣብ ቤልጂዩም ብናጻ ምስራሕ ይከኣል ዶ ዘይከኣልን ናይ ምቕማጥ ደረጃኻ ዘርኢ እዩ። ናይ ስራሕ መሰልካ ምርዳእ ንናጽነትካ ዝዓቢ ሓደ ናይ ቀዳምነት ኣገዳሲ ነገር እዩ።',
+      ar: 'ما إذا كان بإمكانك العمل بحرية في بلجيكا يعتمد على وضع إقامتك. يشرح هذا الدليل القواعد بوضوح — لأن فهم حقوق العمل أمر أساسي لاستقلاليتك.'
+    },
+    steps: [
+      {
+        title: { en: 'Recognized refugee (status A) — free to work', ti: 'ዕቑባ ዝተዋህቦ (Status A) — ብናጻ ምስራሕ ይከኣል', ar: 'اللاجئ المعترف به (الوضع A) — حر في العمل' },
+        body: {
+          en: 'If you have received official refugee status from CGRA, you can work for any employer without a separate work permit. Your residence card itself serves as proof. Show your eID card (with Annex 15 or full card) to employers — no extra paperwork needed from them.',
+          ti: 'ካብ CGRA ናይ ዕቑባ ደረጃ ምስ ዝቕበሉ ናይ ወሃብ-ስራሕ ፍቓድ ዘይሓቲት ንዝኾነ ወሃብ-ስራሕ ምስራሕ ይከኣል። eID ካርድ ኣርኤ — ወሳኺ ሰነዳት ዘሓቲ ኣይኮነን።',
+          ar: 'إذا حصلت على وضع اللاجئ الرسمي من CGRA، يمكنك العمل لأي صاحب عمل دون تصريح عمل منفصل. بطاقة إقامتك نفسها تعمل كإثبات.'
+        },
+        badge: { type: 'tip', en: 'You are entitled to the same wages, protections, and labour rights as any Belgian worker', ti: 'ናይ ቤልጂዩም ሰራሕተኛ ዝኸፈሎ ደሞዝን መሰላትን ናትካ ምዃን', ar: 'يحق لك نفس الأجور والحماية وحقوق العمل كأي عامل بلجيكي' }
+      },
+      {
+        title: { en: 'Subsidiary protection (status B) — also free to work', ti: 'ናይ ምቅዋም ዋሕስ (Status B) — ብናጻ ምስራሕ ይከኣል', ar: 'الحماية الفرعية (الوضع B) — أيضًا حر في العمل' },
+        body: {
+          en: 'If you received subsidiary protection (not full refugee status but protection), you also have the right to work without a permit. Your residence card covers this.',
+          ti: 'ናይ ምቅዋም ዋሕስ ምስ ዝቕበሉ (ምሉእ ዕቑባ ዘይኮነ) ናይ ፍቓድ ዘይሓቲት ምስራሕ ይከኣል።',
+          ar: 'إذا حصلت على حماية فرعية (ليس وضع لاجئ كامل ولكن حماية)، فلديك أيضًا الحق في العمل دون تصريح.'
+        }
+      },
+      {
+        title: { en: 'During asylum procedure — limited rights', ti: 'ኣብ ናይ ዕቑባ ስርዓት — ውሱን መሰላት', ar: 'أثناء إجراءات اللجوء — حقوق محدودة' },
+        body: {
+          en: 'If your asylum case is still being processed, you may work after 4 months from your official registration date. You need a "Annex 26" and your employer must apply for a work permit (laissez-passer). This is a temporary arrangement and the permit is tied to one employer.',
+          ti: 'ናይ ዕቑባ ምምልካትካ ክካየድ ምስ ዘሎ ካብ ናይ ምምዝጋብ ዕለት 4 ወርሒ ምስ ዝሓልፍ ምስራሕ ይከኣል። Annex 26 ዘድሊ ወሃብ-ስራሕ ናይ ስራሕ ፍቓድ ይሓቱ።',
+          ar: 'إذا كانت قضية لجوئك لا تزال قيد المعالجة، يمكنك العمل بعد 4 أشهر من تاريخ تسجيلك الرسمي. تحتاج إلى "Annex 26" ويجب على صاحب العمل التقدم بطلب للحصول على تصريح عمل.'
+        },
+        badge: { type: 'warn', en: 'If your asylum is rejected during employment, your work permit is immediately cancelled', ti: 'ዕቑባ ምስ ዝነፍጎ ናይ ስራሕ ፍቓድ ብቐጥታ ይስርዝ', ar: 'إذا رُفض لجوءك أثناء العمل، يُلغى تصريح العمل فورًا' }
+      },
+      {
+        title: { en: 'Know your rights as a worker', ti: 'ከም ሰራሕተኛ መሰልካ ፍለጥ', ar: 'اعرف حقوقك كعامل' },
+        body: { en: 'As a worker in Belgium you are entitled to:', ti: 'ሰራሕተኛ ቤልጂዩም ዘለዎ መሰላት:', ar: 'كعامل في بلجيكا لديك الحق في:' },
+        list: {
+          en: ['A written contract (always insist on this)', 'Minimum wage (RMMMG/GGMMI — currently ~€1,994/month gross)', 'Paid holidays (20 days minimum per year)', 'Sick leave with pay (after a waiting period)', 'Protection against unfair dismissal', 'Access to union representation'],
+          ti: ['ጽሑፍ ኮንትራት', 'ዝወሓደ ደሞዝ (~€1,994/ወርሒ)', 'ዕፉን ዕረፍቲ (ዝወሓደ 20 መዓልቲ/ዓመት)', 'ሕሙምነት ፍቓድ ምስ ደሞዝ', 'ናይ ዘይፍትሓዊ ምስፋር ምቅዋም'],
+          ar: ['عقد مكتوب (اصرر دائمًا على هذا)', 'الحد الأدنى للأجور (~€1,994/شهر إجمالي)', 'إجازات مدفوعة (20 يومًا كحد أدنى سنويًا)', 'إجازة مرضية مدفوعة', 'الحماية من الفصل التعسفي']
+        }
+      },
+      {
+        title: { en: 'Where to get help with work problems', ti: 'ናይ ስራሕ ጸገም ሓገዝ ኣበይ', ar: 'أين تحصل على مساعدة في مشاكل العمل' },
+        body: {
+          en: 'If your employer is not respecting your rights: contact a union (ACV, FGTB, CGSLB), the Labour Inspectorate (Inspection du Travail), or a legal aid office. Undeclared work ("black work") is risky — you lose all protections and benefits. Always insist on a contract.',
+          ti: 'ወሃብ-ስራሕ መሰልካ ምስ ዘይክብር: ሕብረ-ስራሕ ርኸብ፡ ናይ ስራሕ ቁጽጽር (Inspection du Travail)። ዘይተደነሰ ስራሕ ("ጸሊም ስራሕ") ናይ መሰላትካ ኣልቦ ምኳን ኢዩ — ሓደሳ ኮንትራት ሓዝ።',
+          ar: 'إذا لم يحترم صاحب العمل حقوقك: اتصل بنقابة أو مفتشية العمل أو مكتب المساعدة القانونية. العمل غير المصرح به ("العمل الأسود") محفوف بمخاطر — تفقد جميع الحمايات والمزايا.'
+        },
+        badge: { type: 'warn', en: 'Never work without a contract. "He said he will declare me later" is almost never true.', ti: 'ኮንትራት ዘይብሉ ኣይትስራሕ። "ድሕሪ ምስ ኣፍሊጠካ" ዝብሎ ሓቂ ዳርጋ ኣይኮነን።', ar: 'لا تعمل أبدًا بدون عقد. "قال سيصرح عني لاحقًا" لا يحدث تقريبًا أبدًا.' }
+      }
+    ],
+    resources: {
+      en: [
+        { label: 'FPS Employment — worker rights Belgium', url: 'https://employment.belgium.be' },
+        { label: 'ACV/CSC — Christian Trade Union', url: 'https://www.acv-csc.be' },
+        { label: 'FGTB — Socialist Trade Union', url: 'https://www.fgtb.be' }
+      ]
+    }
+  },
+
+  housing: {
+    tag: { en: 'Housing', ti: 'ቤት / መቐመጢ', ar: 'الإسكان' },
+    title: { en: 'Finding Housing in Belgium', ti: 'መቐመጢ ምርካብ ኣብ ቤልጂዩም', ar: 'إيجاد مسكن في بلجيكا' },
+    intro: {
+      en: 'Finding affordable housing is one of the hardest challenges for newcomers in Belgium. But there are rights and systems that protect you. This guide covers social housing, private rental, and what CPAS can do to help.',
+      ti: 'ዋጋ ዝቐነሰ ቤት ምርካብ ንሓደስቲ ዝዓቢ ብድሆ ኣብ ቤልጂዩም። ግን ዝከላኸሉ ስርዓታት ኣለዉ። ስርዓቶም ፍለጥ።',
+      ar: 'إيجاد مسكن بأسعار معقولة هو أحد أصعب التحديات للوافدين الجدد في بلجيكا. ولكن هناك حقوق وأنظمة تحميك.'
+    },
+    steps: [
+      {
+        title: { en: 'Apply for social housing early', ti: 'ቅድሚ ሕጂ ናይ ማሕበራዊ ቤት ምምልካት', ar: 'التقدم للإسكان الاجتماعي مبكرًا' },
+        body: {
+          en: 'Social housing (HLM/SVK) in Belgium is subsidized and much cheaper than the private market. The waiting lists are long — sometimes 5–10 years in Brussels. Apply as soon as you have a valid residence permit. Register with the local Social Housing Company (SLSP/SHVK) in your commune.',
+          ti: 'ናይ ማሕበራዊ ቤት ኣብ ቤልጂዩም ዝወሓደ ዋጋ ኣለዎ። ናይ ምጽባይ ዝርዝር ነዊሕ እዩ — ኣብ ብሩሰልስ 5–10 ዓመት። ሕጋዊ ናይ መቐመጢ ፍቓድ ምስ ዝህሉ ቀልጢፍካ ምምልካት ጀምር።',
+          ar: 'الإسكان الاجتماعي في بلجيكا مدعوم وأرخص بكثير من السوق الخاصة. قوائم الانتظار طويلة — أحيانًا 5-10 سنوات في بروكسل. قدم طلبًا بمجرد حصولك على تصريح إقامة ساري المفعول.'
+        },
+        badge: { type: 'warn', en: 'Apply even if the wait seems too long — every year of waiting counts towards priority points', ti: 'ምስ ዝናዋሕ ዝጽበ ዝመስለካ እውን ምምልካት — ናይ ቀዳምነት ነጥቢ ዓቢ ዋጋ ኣለዎ', ar: 'قدم حتى لو بدت المدة طويلة — كل عام انتظار يحسب نحو نقاط الأولوية' }
+      },
+      {
+        title: { en: 'Private rental — your rights as a tenant', ti: 'ናይ ብሕቲ ክራይ — ናይ ካርያ መሰልካ', ar: 'الإيجار الخاص — حقوقك كمستأجر' },
+        body: { en: 'As a tenant in Belgium, landlords CANNOT:', ti: 'ከምኡ ካርያ ዋና ዘይፈቐዶ:', ar: 'كمستأجر في بلجيكا، لا يمكن للمالك:' },
+        list: {
+          en: ['Refuse to rent because of your nationality or origin (discrimination — report to Unia)', 'Ask for more than 2 months deposit (for most contracts)', 'Enter your home without notice (except emergency)', 'Evict you without a court order', 'Cut off heating or water to force you out'],
+          ti: ['ብምኽንያት ዜግነት ምንካይ ምክልካሉ', 'ልዕሊ 2 ወርሒ ሳኮ ምሕታቱ', 'ቅድሚ ሓበሬታ ናብ ቤትካ ምምጻእ', 'ካብ ቤት ምስፋር ብዘይ ናይ ቤት-ፍርዲ ትእዛዝ'],
+          ar: ['رفض الإيجار بسبب جنسيتك (تمييز — أبلغ Unia)', 'طلب وديعة أكثر من شهرين', 'دخول منزلك دون إشعار', 'طردك دون أمر قضائي', 'قطع التدفئة أو الماء لإجبارك على المغادرة']
+        }
+      },
+      {
+        title: { en: 'Getting help with the deposit', ti: 'ሓደ ሳኮ ሓገዝ', ar: 'الحصول على مساعدة في الوديعة' },
+        body: {
+          en: 'If you cannot afford the rental deposit (usually 2 months rent): CPAS can pay it on your behalf as an advance. The Fonds du Logement (Brussels) and similar regional bodies also offer deposit guarantees. Ask your social worker about this before signing any lease.',
+          ti: 'ናይ ክራይ ሳኮ (ብዙሕ ጊዜ 2 ወርሒ ክራይ) ምኸፋሉ ምስ ዘይከኣልካ: CPAS ብቅድሚ ምኽፋሉ ክሕግዘካ ይኽእል። ናይ ሱሻ ሰራሕተኛ ሕተቶ።',
+          ar: 'إذا لم تستطع تحمل تكلفة وديعة الإيجار (عادةً شهرين): يمكن لـ CPAS دفعها نيابةً عنك كسلفة. اسأل أخصائيك الاجتماعي عن هذا قبل توقيع أي عقد.'
+        },
+        badge: { type: 'tip', en: 'Never sign a lease without reading it fully — or ask someone to explain it to you first', ti: 'ምሉእ ምንባቡ ዘይብሉ ሊዝ ኣይትፈርም — ቅድሚ ፊርማ ምርዳእ ሕተት', ar: 'لا توقع عقد إيجار دون قراءته كاملًا — أو اطلب من شخص ما شرحه لك أولًا' }
+      },
+      {
+        title: { en: 'SVK — Social Rental Agency (hidden gem)', ti: 'SVK — ናይ ማሕበራዊ ክራይ ኤጀንሲ', ar: 'SVK — وكالة الإيجار الاجتماعي (كنز مخفي)' },
+        body: {
+          en: 'SVK/AIS (Social Verhuurkantoor / Agence Immobilière Sociale) rents private apartments at reduced prices to people with low incomes. They act as the landlord on your behalf — meaning you deal with them, not the private owner. Waiting lists exist but are shorter than social housing.',
+          ti: 'SVK/AIS ናይ ብሕቲ ኣፓርትማ ብዝወሓደ ዋጋ ናብ ዝወሓደ እቶት ዘለዎ ሰብ ይከርዩ። ናይ ምጽባይ ዝርዝር ኣለዎ ግን ካብ ናይ ማሕበራዊ ቤት ሓጸር ዝወሓደ ዝርዝር ኣለዎ።',
+          ar: 'تؤجر SVK/AIS شققًا خاصة بأسعار مخفضة للأشخاص ذوي الدخل المنخفض. تعمل كمالك نيابةً عنك — مما يعني أنك تتعامل معهم وليس مع المالك الخاص.'
+        }
+      },
+      {
+        title: { en: 'Emergency housing options', ti: 'ናይ ህጹጽ ቤት ኣማራጺ', ar: 'خيارات الإسكان الطارئ' },
+        body: { en: 'If you are homeless or at risk:', ti: 'ቤት ምስ ዘይህሉ ወይ ሓደጋ ምስ ዝህሉ:', ar: 'إذا كنت بلا مأوى أو في خطر:' },
+        list: {
+          en: ['CPAS emergency housing request (open Monday–Friday, urgent cases 24h)', 'Samusocial Brussels: 02 340 03 40 (24h homeless service)', 'Fedasil (for new asylum seekers) — they must provide housing during your procedure', 'Church organizations: Caritas, Croix-Rouge often have emergency beds'],
+          ti: ['CPAS ህጹጽ ቤት ምሕታቱ', 'Samusocial ብሩሰልስ: 02 340 03 40', 'Fedasil (ሓደሽቲ ዕቑባ ሓተቲ)', 'Caritas, Croix-Rouge'],
+          ar: ['طلب إسكان طارئ من CPAS', 'Samusocial بروكسل: 02 340 03 40 (خدمة المشردين 24ساعة)', 'Fedasil (لملتمسي اللجوء الجدد)', 'منظمات الكنيسة: Caritas، الصليب الأحمر']
+        }
+      },
+      {
+        title: { en: 'Report discrimination — do not accept it', ti: 'ኣድሎ ምሕባር — ኣይትቐበሎ', ar: 'الإبلاغ عن التمييز — لا تقبله' },
+        body: {
+          en: 'If a landlord or agency refuses to rent to you because of your origin, nationality or status, this is illegal discrimination. Report it to Unia (the Belgian equality authority) online at unia.be or call 0800 12 800 (free). You may be entitled to compensation.',
+          ti: 'ቤት ዋና ወይ ኤጀንሲ ምስ ዝነፍጎ ምስ ሃገርካ ወይ ደረጃኻ ምኽንያት ምናልባሽ ናይ ዓሌት ቅርሕ (ዘይሕጋዊ ኢዩ)። Unia (unia.be) ወይ 0800 12 800 ሓብር። ካሕሳ ናይ ምርካብ መሰልካ ከህሉ ይኽእል።',
+          ar: 'إذا رفض مالك أو وكالة تأجيرك بسبب أصلك أو جنسيتك أو وضعك، فهذا تمييز غير قانوني. أبلغ Unia على unia.be أو اتصل بـ 0800 12 800 (مجاني).'
+        },
+        badge: { type: 'tip', en: 'Save all communication (texts, emails) as evidence if a landlord discriminates', ti: 'ናይ ዓሌት ቅርሕ ምስ ዝህሉ ኩሉ ርክብ ሓዝ (ቴክስት፡ ኢሜይል)', ar: 'احتفظ بجميع الاتصالات (رسائل نصية، بريد إلكتروني) كدليل' }
+      }
+    ],
+    resources: {
+      en: [
+        { label: 'Unia — Belgian anti-discrimination authority', url: 'https://www.unia.be' },
+        { label: 'Brussels Housing (Fonds du Logement)', url: 'https://www.fondsdulogement.be' },
+        { label: 'Samusocial — Emergency Brussels housing', url: 'https://www.samusocial.be' }
+      ]
+    }
+  }
+};
+
+function openGuide(id) {
+  const g = guides[id];
+  if (!g) return;
+  const lang = currentLang;
+  const overlay = document.getElementById('guideOverlay');
+  document.getElementById('guideTag').textContent = g.tag[lang] || g.tag.en;
+  document.getElementById('guideTitle').textContent = g.title[lang] || g.title.en;
+  const body = document.getElementById('guideBody');
+
+  let html = `<div class="guide-intro">${g.intro[lang] || g.intro.en}</div><div class="step-list">`;
+  g.steps.forEach((step, i) => {
+    const title = step.title[lang] || step.title.en;
+    const bodyText = step.body[lang] || step.body.en;
+    const list = step.list ? step.list[lang] || step.list.en : null;
+    const badge = step.badge;
+    html += `<div class="step">
+      <div class="step-num">${i+1}</div>
+      <div class="step-content">
+        <h4>${title}</h4>
+        <p>${bodyText}</p>`;
+    if (list) {
+      html += `<ul>${list.map(l => `<li>${l}</li>`).join('')}</ul>`;
+    }
+    if (badge) {
+      const bt = badge.type === 'warn' ? 'badge-warn' : badge.type === 'time' ? 'badge-time' : 'badge-tip';
+      const ico = badge.type === 'warn' ? '⚠️' : badge.type === 'time' ? '⏱' : '💡';
+      const bl = badge[lang] || badge.en;
+      html += `<span class="step-badge ${bt}">${ico} ${bl}</span>`;
+    }
+    html += `</div></div>`;
+  });
+  html += `</div>`;
+
+  if (g.resources) {
+    const res = g.resources[lang] || g.resources.en;
+    html += `<div class="guide-resources"><h4>Official Links</h4>`;
+    res.forEach(r => {
+      html += `<a class="resource-link" href="${r.url}" target="_blank">🔗 ${r.label}</a>`;
+    });
+    html += `</div>`;
+  }
+
+  body.innerHTML = html;
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeGuide() {
+  document.getElementById('guideOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeGuideOnBg(e) {
+  if (e.target === document.getElementById('guideOverlay')) closeGuide();
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeGuide();
+});
+</script>
+</body>
+</html>
